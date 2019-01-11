@@ -1,0 +1,543 @@
+atom     0 radius   0.50000E+01 type     alumina name 1 charge 0.1000E+01
+atom     1 radius   0.50000E+01 type     alumina name 1 charge 0.1000E+01
+atom     2 radius   0.50000E+01 type     alumina name 1 charge 0.1000E+01
+atom     3 radius   0.50000E+01 type     alumina name 1 charge 0.1000E+01
+atom     4 radius   0.50000E+01 type     alumina name 1 charge 0.1000E+01
+atom     5 radius   0.50000E+01 type     alumina name 1 charge 0.1000E+01
+atom     6 radius   0.50000E+01 type     alumina name 1 charge 0.1000E+01
+atom     7 radius   0.50000E+01 type     alumina name 1 charge 0.1000E+01
+atom     8 radius   0.50000E+01 type     alumina name 1 charge 0.1000E+01
+atom     9 radius   0.50000E+01 type     alumina name 1 charge 0.1000E+01
+atom    10 radius   0.50000E+01 type     alumina name 1 charge 0.1000E+01
+atom    11 radius   0.50000E+01 type     alumina name 1 charge 0.1000E+01
+atom    12 radius   0.50000E+01 type     alumina name 1 charge 0.1000E+01
+atom    13 radius   0.50000E+01 type     alumina name 1 charge 0.1000E+01
+atom    14 radius   0.50000E+01 type     alumina name 1 charge 0.1000E+01
+atom    15 radius   0.50000E+01 type     alumina name 1 charge 0.1000E+01
+atom    16 radius   0.50000E+01 type     alumina name 1 charge 0.1000E+01
+atom    17 radius   0.50000E+01 type     alumina name 1 charge 0.1000E+01
+atom    18 radius   0.50000E+01 type     alumina name 1 charge 0.1000E+01
+atom    19 radius   0.50000E+01 type     alumina name 1 charge 0.1000E+01
+atom    20 radius   0.50000E+01 type     alumina name 1 charge 0.1000E+01
+atom    21 radius   0.50000E+01 type     alumina name 1 charge 0.1000E+01
+atom    22 radius   0.50000E+01 type     alumina name 1 charge 0.1000E+01
+atom    23 radius   0.50000E+01 type     alumina name 1 charge 0.1000E+01
+atom    24 radius   0.50000E+01 type      countA name 2 charge 0.1000E+01
+atom    25 radius   0.50000E+01 type      countA name 2 charge 0.1000E+01
+atom    26 radius   0.50000E+01 type      countA name 2 charge 0.1000E+01
+atom    27 radius   0.50000E+01 type      countA name 2 charge 0.1000E+01
+atom    28 radius   0.50000E+01 type      countA name 2 charge 0.1000E+01
+atom    29 radius   0.50000E+01 type      countA name 2 charge 0.1000E+01
+atom    30 radius   0.50000E+01 type      countA name 2 charge 0.1000E+01
+atom    31 radius   0.50000E+01 type      countA name 2 charge 0.1000E+01
+atom    32 radius   0.50000E+01 type      countA name 2 charge 0.1000E+01
+atom    33 radius   0.50000E+01 type      countA name 2 charge 0.1000E+01
+atom    34 radius   0.50000E+01 type      countA name 2 charge 0.1000E+01
+atom    35 radius   0.50000E+01 type      countA name 2 charge 0.1000E+01
+atom    36 radius   0.50000E+01 type      countA name 2 charge 0.1000E+01
+atom    37 radius   0.50000E+01 type      countA name 2 charge 0.1000E+01
+atom    38 radius   0.50000E+01 type      countA name 2 charge 0.1000E+01
+atom    39 radius   0.50000E+01 type      countA name 2 charge 0.1000E+01
+atom    40 radius   0.50000E+01 type      countA name 2 charge 0.1000E+01
+atom    41 radius   0.50000E+01 type      countA name 2 charge 0.1000E+01
+atom    42 radius   0.50000E+01 type      countA name 2 charge 0.1000E+01
+atom    43 radius   0.50000E+01 type      countA name 2 charge 0.1000E+01
+atom    44 radius   0.50000E+01 type      countA name 2 charge 0.1000E+01
+atom    45 radius   0.50000E+01 type      countA name 2 charge 0.1000E+01
+atom    46 radius   0.50000E+01 type      countA name 2 charge 0.1000E+01
+atom    47 radius   0.50000E+01 type      countA name 2 charge 0.1000E+01
+atom    48 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom    49 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom    50 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom    51 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom    52 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom    53 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom    54 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom    55 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom    56 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom    57 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom    58 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom    59 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom    60 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom    61 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom    62 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom    63 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom    64 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom    65 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom    66 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom    67 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom    68 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom    69 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom    70 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom    71 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom    72 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom    73 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom    74 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom    75 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom    76 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom    77 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom    78 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom    79 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom    80 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom    81 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom    82 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom    83 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom    84 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom    85 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom    86 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom    87 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom    88 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom    89 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom    90 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom    91 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom    92 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom    93 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom    94 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom    95 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom    96 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom    97 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom    98 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom    99 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom   100 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom   101 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom   102 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom   103 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom   104 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom   105 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom   106 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom   107 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom   108 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom   109 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom   110 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom   111 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom   112 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom   113 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom   114 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom   115 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom   116 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom   117 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom   118 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom   119 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom   120 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom   121 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom   122 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom   123 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom   124 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom   125 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom   126 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom   127 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom   128 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom   129 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom   130 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom   131 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom   132 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom   133 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom   134 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom   135 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom   136 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom   137 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom   138 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom   139 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom   140 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom   141 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom   142 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom   143 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom   144 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom   145 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom   146 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom   147 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom   148 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom   149 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom   150 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom   151 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom   152 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom   153 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom   154 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom   155 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom   156 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom   157 radius   0.50000E+01 type      silica name 3 charge 0.1000E+01
+atom   158 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   159 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   160 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   161 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   162 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   163 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   164 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   165 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   166 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   167 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   168 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   169 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   170 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   171 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   172 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   173 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   174 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   175 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   176 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   177 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   178 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   179 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   180 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   181 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   182 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   183 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   184 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   185 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   186 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   187 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   188 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   189 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   190 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   191 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   192 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   193 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   194 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   195 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   196 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   197 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   198 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   199 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   200 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   201 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   202 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   203 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   204 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   205 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   206 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   207 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   208 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   209 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   210 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   211 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   212 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   213 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   214 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   215 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   216 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   217 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   218 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   219 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   220 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   221 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   222 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   223 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   224 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   225 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   226 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   227 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   228 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   229 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   230 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   231 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   232 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   233 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   234 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   235 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   236 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   237 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   238 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   239 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   240 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   241 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   242 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   243 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   244 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   245 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   246 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   247 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   248 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   249 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   250 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   251 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   252 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   253 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   254 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   255 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   256 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   257 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   258 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   259 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   260 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   261 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   262 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   263 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   264 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   265 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   266 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+atom   267 radius   0.50000E+01 type      countS name 4 charge 0.1000E+01
+
+
+
+
+# Start of image 1
+timestep ordered
+  0.27555E-14  0.45000E+02 -0.28274E+03
+ -0.45000E+02  0.55109E-14 -0.28274E+03
+  0.45000E+02 -0.11022E-13 -0.28274E+03
+ -0.31820E+02 -0.31820E+02 -0.21206E+03
+  0.31820E+02 -0.31820E+02 -0.21206E+03
+ -0.31820E+02  0.31820E+02 -0.21206E+03
+  0.27555E-14  0.45000E+02 -0.14137E+03
+ -0.45000E+02  0.55109E-14 -0.14137E+03
+  0.45000E+02 -0.11022E-13 -0.14137E+03
+ -0.31820E+02 -0.31820E+02 -0.70686E+02
+  0.31820E+02 -0.31820E+02 -0.70686E+02
+ -0.31820E+02  0.31820E+02 -0.70686E+02
+  0.27555E-14  0.45000E+02 -0.28422E-13
+ -0.45000E+02  0.55109E-14 -0.28422E-13
+  0.45000E+02 -0.11022E-13 -0.28422E-13
+ -0.31820E+02 -0.31820E+02  0.70686E+02
+  0.31820E+02 -0.31820E+02  0.70686E+02
+ -0.31820E+02  0.31820E+02  0.70686E+02
+  0.27555E-14  0.45000E+02  0.14137E+03
+ -0.45000E+02  0.55109E-14  0.14137E+03
+  0.45000E+02 -0.11022E-13  0.14137E+03
+ -0.31820E+02 -0.31820E+02  0.21206E+03
+  0.31820E+02 -0.31820E+02  0.21206E+03
+ -0.31820E+02  0.31820E+02  0.21206E+03
+ -0.21971E+03 -0.22866E+03  0.83459E+02
+  0.23955E+03  0.60093E+02 -0.87729E+03
+  0.39830E+03 -0.12546E+03  0.75804E+03
+ -0.13187E+03  0.31820E+03  0.20834E+02
+  0.32264E+03  0.24591E+03 -0.34084E+03
+  0.22160E+03  0.36596E+03 -0.96643E+02
+ -0.33144E+03 -0.13890E+03 -0.73551E+03
+  0.29922E+03 -0.31800E+03 -0.21264E+03
+  0.25204E+03  0.42893E+03  0.48787E+03
+ -0.17561E+03  0.30758E+03 -0.36633E+02
+  0.39952E+03 -0.83038E+02 -0.93115E+03
+ -0.13018E+03 -0.46627E+03 -0.18009E+03
+ -0.14218E+03 -0.10814E+03  0.19078E+03
+  0.38347E+03  0.29142E+03  0.21288E+03
+ -0.27804E+02  0.20504E+03  0.96302E+03
+  0.30064E+02  0.29596E+03 -0.83274E+02
+  0.93129E+01 -0.44144E+03 -0.98623E+02
+  0.20781E+03 -0.44545E+03 -0.29877E+03
+ -0.44526E+03 -0.15393E+03  0.92031E+03
+  0.13023E+03  0.13568E+03  0.18346E+03
+ -0.33005E+03 -0.44973E+02 -0.30045E+03
+ -0.43310E+02  0.16883E+03 -0.98553E+03
+ -0.25343E+03  0.30271E+03  0.41051E+03
+ -0.11858E+03  0.22653E+03  0.35691E+01
+  0.14320E+03  0.59316E+02 -0.27391E+03
+  0.10960E+03  0.10960E+03 -0.27391E+03
+  0.94910E-14  0.15500E+03 -0.27391E+03
+ -0.59316E+02  0.14320E+03 -0.27391E+03
+ -0.14320E+03  0.59316E+02 -0.27391E+03
+ -0.15500E+03  0.18982E-13 -0.27391E+03
+ -0.10960E+03 -0.10960E+03 -0.27391E+03
+ -0.59316E+02 -0.14320E+03 -0.27391E+03
+  0.59316E+02 -0.14320E+03 -0.27391E+03
+  0.10960E+03 -0.10960E+03 -0.27391E+03
+  0.15500E+03  0.23737E-12 -0.27391E+03
+  0.86113E+02  0.12888E+03 -0.21304E+03
+  0.30239E+02  0.15202E+03 -0.21304E+03
+ -0.86113E+02  0.12888E+03 -0.21304E+03
+ -0.12888E+03  0.86113E+02 -0.21304E+03
+ -0.15202E+03 -0.30239E+02 -0.21304E+03
+ -0.12888E+03 -0.86113E+02 -0.21304E+03
+ -0.30239E+02 -0.15202E+03 -0.21304E+03
+  0.30239E+02 -0.15202E+03 -0.21304E+03
+  0.12888E+03 -0.86113E+02 -0.21304E+03
+  0.15202E+03 -0.30239E+02 -0.21304E+03
+  0.12888E+03  0.86113E+02 -0.21304E+03
+  0.14320E+03  0.59316E+02 -0.15217E+03
+  0.10960E+03  0.10960E+03 -0.15217E+03
+  0.94910E-14  0.15500E+03 -0.15217E+03
+ -0.59316E+02  0.14320E+03 -0.15217E+03
+ -0.14320E+03  0.59316E+02 -0.15217E+03
+ -0.15500E+03  0.18982E-13 -0.15217E+03
+ -0.10960E+03 -0.10960E+03 -0.15217E+03
+ -0.59316E+02 -0.14320E+03 -0.15217E+03
+  0.59316E+02 -0.14320E+03 -0.15217E+03
+  0.10960E+03 -0.10960E+03 -0.15217E+03
+  0.15500E+03  0.23737E-12 -0.15217E+03
+  0.86113E+02  0.12888E+03 -0.91303E+02
+  0.30239E+02  0.15202E+03 -0.91303E+02
+ -0.86113E+02  0.12888E+03 -0.91303E+02
+ -0.12888E+03  0.86113E+02 -0.91303E+02
+ -0.15202E+03 -0.30239E+02 -0.91303E+02
+ -0.12888E+03 -0.86113E+02 -0.91303E+02
+ -0.30239E+02 -0.15202E+03 -0.91303E+02
+  0.30239E+02 -0.15202E+03 -0.91303E+02
+  0.12888E+03 -0.86113E+02 -0.91303E+02
+  0.15202E+03 -0.30239E+02 -0.91303E+02
+  0.12888E+03  0.86113E+02 -0.91303E+02
+  0.14320E+03  0.59316E+02 -0.30434E+02
+  0.10960E+03  0.10960E+03 -0.30434E+02
+  0.94910E-14  0.15500E+03 -0.30434E+02
+ -0.59316E+02  0.14320E+03 -0.30434E+02
+ -0.14320E+03  0.59316E+02 -0.30434E+02
+ -0.15500E+03  0.18982E-13 -0.30434E+02
+ -0.10960E+03 -0.10960E+03 -0.30434E+02
+ -0.59316E+02 -0.14320E+03 -0.30434E+02
+  0.59316E+02 -0.14320E+03 -0.30434E+02
+  0.10960E+03 -0.10960E+03 -0.30434E+02
+  0.15500E+03  0.23737E-12 -0.30434E+02
+  0.86113E+02  0.12888E+03  0.30434E+02
+  0.30239E+02  0.15202E+03  0.30434E+02
+ -0.86113E+02  0.12888E+03  0.30434E+02
+ -0.12888E+03  0.86113E+02  0.30434E+02
+ -0.15202E+03 -0.30239E+02  0.30434E+02
+ -0.12888E+03 -0.86113E+02  0.30434E+02
+ -0.30239E+02 -0.15202E+03  0.30434E+02
+  0.30239E+02 -0.15202E+03  0.30434E+02
+  0.12888E+03 -0.86113E+02  0.30434E+02
+  0.15202E+03 -0.30239E+02  0.30434E+02
+  0.12888E+03  0.86113E+02  0.30434E+02
+  0.14320E+03  0.59316E+02  0.91303E+02
+  0.10960E+03  0.10960E+03  0.91303E+02
+  0.94910E-14  0.15500E+03  0.91303E+02
+ -0.59316E+02  0.14320E+03  0.91303E+02
+ -0.14320E+03  0.59316E+02  0.91303E+02
+ -0.15500E+03  0.18982E-13  0.91303E+02
+ -0.10960E+03 -0.10960E+03  0.91303E+02
+ -0.59316E+02 -0.14320E+03  0.91303E+02
+  0.59316E+02 -0.14320E+03  0.91303E+02
+  0.10960E+03 -0.10960E+03  0.91303E+02
+  0.15500E+03  0.23737E-12  0.91303E+02
+  0.86113E+02  0.12888E+03  0.15217E+03
+  0.30239E+02  0.15202E+03  0.15217E+03
+ -0.86113E+02  0.12888E+03  0.15217E+03
+ -0.12888E+03  0.86113E+02  0.15217E+03
+ -0.15202E+03 -0.30239E+02  0.15217E+03
+ -0.12888E+03 -0.86113E+02  0.15217E+03
+ -0.30239E+02 -0.15202E+03  0.15217E+03
+  0.30239E+02 -0.15202E+03  0.15217E+03
+  0.12888E+03 -0.86113E+02  0.15217E+03
+  0.15202E+03 -0.30239E+02  0.15217E+03
+  0.12888E+03  0.86113E+02  0.15217E+03
+  0.14320E+03  0.59316E+02  0.21304E+03
+  0.10960E+03  0.10960E+03  0.21304E+03
+  0.94910E-14  0.15500E+03  0.21304E+03
+ -0.59316E+02  0.14320E+03  0.21304E+03
+ -0.14320E+03  0.59316E+02  0.21304E+03
+ -0.15500E+03  0.18982E-13  0.21304E+03
+ -0.10960E+03 -0.10960E+03  0.21304E+03
+ -0.59316E+02 -0.14320E+03  0.21304E+03
+  0.59316E+02 -0.14320E+03  0.21304E+03
+  0.10960E+03 -0.10960E+03  0.21304E+03
+  0.15500E+03  0.23737E-12  0.21304E+03
+  0.86113E+02  0.12888E+03  0.27391E+03
+  0.30239E+02  0.15202E+03  0.27391E+03
+ -0.86113E+02  0.12888E+03  0.27391E+03
+ -0.12888E+03  0.86113E+02  0.27391E+03
+ -0.15202E+03 -0.30239E+02  0.27391E+03
+ -0.12888E+03 -0.86113E+02  0.27391E+03
+ -0.30239E+02 -0.15202E+03  0.27391E+03
+  0.30239E+02 -0.15202E+03  0.27391E+03
+  0.12888E+03 -0.86113E+02  0.27391E+03
+  0.15202E+03 -0.30239E+02  0.27391E+03
+  0.12888E+03  0.86113E+02  0.27391E+03
+ -0.37281E+03 -0.12158E+03 -0.47316E+03
+ -0.48058E+03 -0.72111E+01  0.63039E+03
+  0.22409E+03 -0.41212E+03  0.62917E+03
+ -0.32844E+03  0.27118E+03 -0.24423E+03
+  0.13353E+03  0.28721E+03  0.93267E+03
+  0.22772E+03 -0.36115E+02 -0.20731E+03
+ -0.36364E+02 -0.30198E+03 -0.90340E+03
+  0.48471E+03 -0.28869E+01  0.71653E+03
+  0.12067E+03  0.27617E+03  0.20820E+03
+  0.18462E+03 -0.19939E+03 -0.15231E+03
+  0.33387E+03  0.13870E+03 -0.99516E+03
+  0.17796E+03 -0.19121E+03 -0.24181E+03
+  0.44633E+03  0.14860E+03 -0.33365E+02
+ -0.19865E+03  0.14191E+03  0.41223E+03
+  0.23074E+03  0.47937E+02  0.67334E+03
+ -0.33410E+03 -0.14899E+02  0.53992E+03
+  0.25028E+03 -0.27822E+03  0.24309E+02
+ -0.46974E+03 -0.16422E+03  0.68372E+03
+ -0.13034E+02  0.15657E+03  0.71890E+03
+ -0.27296E+03  0.67236E+02  0.66208E+03
+  0.36358E+03  0.11725E+03 -0.40582E+03
+ -0.26084E+03 -0.25686E+03  0.31266E+03
+  0.30815E+03 -0.10261E+03  0.36697E+03
+  0.22167E+01 -0.26521E+03 -0.22719E+03
+  0.35836E+03 -0.11451E+03  0.19461E+03
+ -0.23056E+03  0.32027E+03 -0.92088E+03
+ -0.14759E+03 -0.31701E+03 -0.40030E+03
+  0.21986E+03 -0.29220E+03 -0.59385E+03
+ -0.12722E+03 -0.38558E+03 -0.12156E+03
+  0.14540E+03 -0.35857E+03  0.65926E+03
+ -0.30058E+03  0.18745E+03 -0.37501E+03
+ -0.20512E+03 -0.78563E+02 -0.45619E+03
+  0.10506E+03  0.37424E+03  0.49847E+03
+ -0.37003E+03  0.22537E+03  0.18051E+03
+ -0.15776E+03 -0.35908E+02 -0.38682E+03
+ -0.37120E+03 -0.25720E+03  0.69141E+03
+  0.40777E+03 -0.48647E+02 -0.42915E+03
+  0.11910E+03  0.23482E+03 -0.34099E+03
+ -0.13516E+03  0.52957E+01 -0.83584E+03
+  0.28300E+03  0.60974E+02  0.76138E+02
+ -0.17733E+03 -0.36636E+03 -0.44788E+03
+ -0.35173E+03  0.33165E+03  0.62582E+03
+ -0.18077E+03  0.12382E+03 -0.86830E+03
+  0.43415E+02  0.36307E+03 -0.70122E+03
+ -0.14359E+02 -0.17935E+03 -0.31585E+03
+  0.47174E+02  0.23028E+03  0.44734E+02
+ -0.15985E+03 -0.43245E+03 -0.46022E+03
+  0.22120E+02  0.44972E+03  0.86343E+03
+ -0.10647E+03  0.25674E+03 -0.98371E+03
+ -0.13666E+03  0.12740E+03 -0.35790E+03
+ -0.16537E+03 -0.11577E+03  0.62834E+03
+  0.16443E+03  0.43923E+03  0.22895E+03
+  0.16727E+03 -0.22507E+03  0.75543E+03
+ -0.12309E+03 -0.15128E+03  0.82792E+03
+ -0.55057E+02 -0.25600E+03  0.97029E+03
+ -0.31672E+03  0.17171E+02 -0.40333E+03
+  0.54477E+02  0.28764E+03 -0.56033E+03
+  0.11816E+03 -0.91905E+02 -0.61136E+03
+ -0.80923E+02 -0.18242E+03 -0.87201E+03
+  0.19257E+03 -0.28046E+03 -0.53105E+03
+  0.12710E+03 -0.47468E+03  0.76412E+03
+ -0.27408E+03  0.36917E+03 -0.49664E+01
+  0.20406E+03 -0.30902E+03 -0.78344E+01
+  0.73437E+02 -0.25226E+03  0.17849E+03
+  0.78006E+02 -0.28616E+03  0.98642E+03
+  0.17054E+03 -0.35542E+03  0.97721E+03
+  0.46250E+03 -0.11371E+03  0.84826E+03
+  0.18070E+03 -0.30939E+03  0.81259E+03
+ -0.40761E+03 -0.21719E+03  0.22063E+03
+  0.73739E+02  0.36475E+03  0.97902E+03
+  0.25815E+02 -0.44693E+03 -0.95577E+03
+ -0.22581E+03 -0.32310E+03 -0.24243E+03
+  0.47839E+03 -0.11072E+03 -0.36701E+03
+  0.12799E+03  0.38545E+03  0.69764E+03
+  0.45080E+03  0.16796E+03 -0.80192E+03
+ -0.98107E+01 -0.44856E+03  0.96896E+02
+  0.39785E+03  0.18506E+03  0.17908E+03
+ -0.82822E+02 -0.22540E+03 -0.56422E+03
+  0.40575E+03 -0.25653E+03 -0.91592E+03
+  0.16258E+03  0.20967E+03 -0.44107E+03
+ -0.63079E+02 -0.15246E+03 -0.27293E+03
+  0.20288E+03  0.10379E+03  0.17223E+03
+  0.26146E+03  0.27969E+03  0.61932E+03
+ -0.21387E+03 -0.71315E+02  0.47219E+03
+ -0.40698E+03  0.10491E+03 -0.81706E+02
+  0.26767E+03  0.40087E+03  0.20289E+03
+ -0.17206E+03  0.21037E+03 -0.88214E+03
+ -0.13822E+03 -0.40967E+03  0.79360E+03
+ -0.47376E+02 -0.23363E+03  0.67452E+03
+  0.42465E+03  0.76478E+02 -0.52795E+03
+ -0.18714E+03 -0.14150E+02  0.45129E+03
+ -0.41154E+03  0.18128E+03  0.88933E+03
+ -0.10318E+03 -0.24678E+03  0.47550E+03
+  0.33941E+03  0.20519E+03  0.21730E+03
+ -0.25554E+03  0.24282E+03  0.71564E+03
+ -0.20901E+03 -0.34091E+03  0.31583E+03
+ -0.13899E+03  0.97248E+02 -0.53927E+03
+ -0.41468E+03  0.15384E+03 -0.17096E+02
+ -0.20223E+03  0.44374E+03  0.31155E+03
+  0.24197E+03  0.44603E+01 -0.98876E+02
+  0.22745E+03  0.16057E+03 -0.60488E+03
+  0.41113E+03  0.76952E+01  0.38469E+03
+ -0.23633E+03 -0.83411E+02 -0.65383E+02
+  0.49876E+03  0.31472E+02  0.13669E+03
+  0.13745E+03  0.17682E+03  0.96364E+03
+  0.17598E+03  0.47804E+02 -0.77816E+03
+ -0.21268E+03 -0.22111E+03 -0.29486E+03
+ -0.31962E+03  0.21815E+03  0.29177E+03
+  0.11309E+03 -0.29698E+03 -0.19484E+03
+  0.39338E+03 -0.18465E+03 -0.71554E+03
+# End Image

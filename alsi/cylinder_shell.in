@@ -1,0 +1,69 @@
+ &nmlSystem
+  txtitle ='ions and counterions spherically confined',
+  txmethod = 'mc',    txensemb = 'nvt',     txbc = 'cyl',      txstart = 'setconf',
+  nstep1 = 10,        nstep2 = 10000,
+  cylrad = 800.0,     cyllen = 1200,
+  temp  = 298.0,
+  iseed = 1,
+  lcont =.t.,  laver =.t.,  ldist =.t.,  ldump =.f.,  lgroup =.t.,  lstatic =.t.,limage =.true.,
+  itest = 0,   ipart = 0,   iatom = 0,   iaver = 0,    ishow = 1,   iplot = 1,  ilist = 1, ltrace =.f.,
+ /
+ &nmlScale
+ /
+ &nmlParticle
+  npt   = 4,                                                 ! number of particle types
+  txpt  = 'alumina','countA','silica','countS',              ! name of particle types
+  txelec = 'weakcharge',              
+  nppt  =  100,    100, 400, 400,                            ! number of particles per particle type
+  natpt =  1,       1, 1, 1,                                 ! number of atoms per particle type
+  txat  = 'alumina','countA', 'silica','countS' ,            ! name of atom type
+  radat = 2.0,  2.0, 2.0, 2.0,                               ! radius of atom type
+  zat   = 1.0,   -1.0, -1.0, 1.0,                            ! charge of atom type
+  naatpt(1,1) =  1,
+  txaat(1,1) = 'alumina',
+  naatpt(1,2) =	1,
+  txaat(1,2) = 'countA',
+  naatpt(1,3) = 1,
+  txaat(1,3) = 'silica',
+  naatpt(1,4) = 1,
+  txaat(1,4) = 'countS', 
+  pH = SETPH,
+  pK(1) = 9,
+  pK(3) = 4.2,
+  latweakcharge = .true., .true., .true.,.true.,
+  jatweakcharge = 2, 0, 4, 0,
+ /
+ &nmlPotential
+  relpermitt = 80.0,
+  luext=.true.,
+ /
+ &nmlPotentialExternal txuext = 4*'cylinder_shell', rcap = 60.0, dcap = 500.0, lcap = 700.0,
+ /
+ &nmlSetConfiguration
+  txsetconf = 'innernanotubesurface', 'random_cyl_shell', 'outernanotubesurface', 'random_cyl_shell',
+ /
+ &nmlMC
+ pcharge = 1.0, 0.0, 1.0, 0.0,  
+ dtran =  0.0, 10.0, 0.0, 10.0,
+ /
+ &nmlIntList inlist = 0, drnlist = 20.0 /
+ &nmlDist idist = 10, vtype(5) =.true., 0.0, 100.0, 100, rcutdist = 100.0 /
+ &nmlGroup /
+ &nmlStatic
+  istatic = 1,
+  lspdf =.true.,
+ /
+ &nmlSPDF vtype(1) =.true., 0.0, 1000.0, 500 /
+ &nmlImage iimage = 1, lvrml =.true., lvtf = .true. /
+ &nmlVRML
+  txwhen = 'after_macro',
+   blmax = 5.0,
+   bondr = 0.3, /
+ &nmlVTF
+   txfile = 'split',
+   txwhen = 'after_macro',
+   lframezero = .t.,
+   blmax = 5.0,
+   bondr = 0.3,
+   sphres = 20.0, /
+

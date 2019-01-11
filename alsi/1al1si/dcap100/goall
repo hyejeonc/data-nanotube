@@ -1,0 +1,48 @@
+#!/bin/sh
+
+#Ensure we use english settings, to avoid wrong decimals (e.g. 2,5)
+LC_ALL=C  LANG=en_GB.utf8
+
+
+Project=cylinder_shell
+
+
+# Set up inital short run
+initph=2
+endph=8
+
+
+# # loop over pH
+for i in $(seq $initph 1 $endph)  #$(seq START INC STOP)
+do
+    
+    pdir=$wdir #previous directory
+    
+    if [ $(echo "$i < 0" | bc) -eq 1 ]
+    then
+	d=${i#"-"}
+	wdir="phm${d}"  #working directory
+    else
+	wdir="ph$i"
+    fi
+    
+    if [ $pdir ] #false on first run
+    then
+	mkdir -p $wdir
+	#cp $pdir/$Project.cnf $wdir/$Project.cnf
+    fi
+
+    #echo $pdir, $wdir
+
+    cp $Project.in.master $wdir/$Project.in
+    cd $wdir
+
+    sed -i "s/SETPH/$i/g"  $Project.in
+    
+    echo "Starting run for pH $i"
+    nice -n 19 molsim_ser.6.4.7 $Project
+   
+    cd ..
+    
+done
+    
