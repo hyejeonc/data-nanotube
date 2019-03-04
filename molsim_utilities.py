@@ -494,14 +494,14 @@ def getLTT(fin, restype=''):
                 [number of x]                   [variation (fluctuation)],
                 [length of x]                   [variation],
                 [number of segments in x]       [variation]
-            in the case of x = 'loops', 'tails' or 'trains', or on the form
+            in the case of x = 'loops ', 'tails' or 'trains', or on the form
                 [number of adsorbed chains]     [variation],
                 [number of adsorbed segments]   [variation]
             in the case of 'adsorbed'
             Note: loops, tails and trains are average number per (adsorbed?) chain!
     '''
-
-    if 'outsim' not in fin:
+    #if 'outsim' not in fin:
+    if 'out' not in fin:
         errmsg = "Not an outsim file. Exiting getLTT()."
         sys.exit(errmsg)
 
@@ -558,8 +558,233 @@ def getLTT(fin, restype=''):
         num_seg = np.fromstring(num_seg_str.decode(), dtype=np.float, count=5, sep=' ')
 
         return np.array([ [num[0], num[2]], [length[0], length[2]], [num_seg[0], num_seg[2]] ])
+    
+def gettubeIOLTT(fin, restype=''):
+
+    ''' Extracts data about loops, tails, trains and adsorbed chains/monomers from Molsim's out-file.
+    Input:  fin - file in
+            restype - type of result. Can be 'loops', 'tails', 'trains' or 'adsorbed'
+    Output: 2D array of results on the form
+                [number of x]                   [variation (fluctuation)],
+                [length of x]                   [variation],
+                [number of segments in x]       [variation]
+            in the case of x = 'loops', 'tails' or 'trains', or on the form
+                [number of adsorbed chains]     [variation],
+                [number of adsorbed segments]   [variation]
+            in the case of 'adsorbed'
+            Note: loops, tails and trains are average number per (adsorbed?) chain!
+    '''
+    #if 'outsim' not in fin:
+    #if 'out' not in fin:
+    #    errmsg = "Not an outsim file. Exiting getLTT()."
+    #    sys.exit(errmsg)
+
+    if 'tail' in restype.lower():
+        strsearch = b'tail'
+    elif 'train' in restype.lower():
+        strsearch = b'train'
+    elif 'loop' in restype.lower():
+        strsearch = b'loop'
+    elif 'ads' in restype.lower():
+        strsearch = b'adsorbed'
+    else:
+        print('getLTT(): Can not find restype')
+        return 0
 
 
+    with open(fin, "r+b") as infile:
+        data = mmap.mmap(infile.fileno(), 0, access=mmap.ACCESS_READ)  # Map file to memory, read only
+
+        ind = data.seek(data.find(b'adsorbing surface              =       -|+'))
+
+        if ind == -1:
+            errmsg = "Error searching for \"{}\": Didn't find specified string".format(strsearch)
+            sys.exit(errmsg)
+        data.readline()  # Ensure we're at the beginning of the next line,
+                         # so e.g. data.seek(loop) doesn't find 'loop' in 'loop, tail, and train characteristics'
+
+        if strsearch == b'adsorbed':
+            ind = data.find(strsearch)
+            data.seek(ind)
+
+            s = data.readline()
+            ch_str = s[s.find(b'=')+1:].strip()
+            ads_ch = np.fromstring(ch_str.decode(), dtype=np.float, count=5, sep=' ')
+            s = data.readline()
+            seg_str = s[s.find(b'=')+1:].strip()
+            ads_seg = np.fromstring(seg_str.decode(), dtype=np.float, count=5, sep=' ')
+
+            return np.array([[ads_ch[0], ads_ch[2]], [ads_seg[0], ads_seg[2]]])
+
+
+        data.seek(data.find(strsearch))
+        s = data.readline()
+        num_str = s[s.find(b'=')+1:].strip()
+        num = np.fromstring(num_str.decode(), dtype=np.float, count=5, sep=' ')
+
+        data.seek(data.find(strsearch))
+        s = data.readline()
+        len_str = s[s.find(b'=')+1:].strip()
+        length = np.fromstring(len_str.decode(), dtype=np.float, count=5, sep=' ')
+
+        data.seek(data.find(strsearch))
+        s = data.readline()
+        num_seg_str = s[s.find(b'=')+1:].strip()
+        num_seg = np.fromstring(num_seg_str.decode(), dtype=np.float, count=5, sep=' ')
+
+        return np.array([ [num[0], num[2]], [length[0], length[2]], [num_seg[0], num_seg[2]] ])    
+
+def gettubeILTT(fin, restype=''):
+
+    ''' Extracts data about loops, tails, trains and adsorbed chains/monomers of inner tube surface from Molsim's out-file.
+    Input:  fin - file in
+            restype - type of result. Can be 'loops', 'tails', 'trains' or 'adsorbed'
+    Output: 2D array of results on the form
+                [number of x]                   [variation (fluctuation)],
+                [length of x]                   [variation],
+                [number of segments in x]       [variation]
+            in the case of x = 'loops', 'tails' or 'trains', or on the form
+                [number of adsorbed chains]     [variation],
+                [number of adsorbed segments]   [variation]
+            in the case of 'adsorbed'
+            Note: loops, tails and trains are average number per (adsorbed?) chain!
+    '''
+    # 'outsim' not in fin:
+    #if 'cylinder' not in fin:
+    #    errmsg = "Not an outsim file. Exiting getLTT()."
+    #    sys.exit(errmsg)
+
+    
+    if 'tail' in restype.lower():
+        strsearch = b'tail'
+    elif 'train' in restype.lower():
+        strsearch = b'train'
+    elif 'loop' in restype.lower():
+        strsearch = b'loop'
+    elif 'ads' in restype.lower():
+        strsearch = b'adsorbed'
+    else:
+        print('getLTT(): Can not find restype')
+        return 0
+
+
+    with open(fin, "r+b") as infile:
+        data = mmap.mmap(infile.fileno(), 0, access=mmap.ACCESS_READ)  # Map file to memory, read only
+
+        ind = data.seek(data.find(b'adsorbing surface              =       -  '))
+        if ind == -1:
+            errmsg = "Error searching for \"{}\": Didn't find specified string".format(strsearch)
+            sys.exit(errmsg)
+        data.readline()  # Ensure we're at the beginning of the next line,
+                         # so e.g. data.seek(loop) doesn't find 'loop' in 'loop, tail, and train characteristics'
+
+        if strsearch == b'adsorbed':
+            ind = data.find(strsearch)
+            data.seek(ind)
+
+            s = data.readline()
+            ch_str = s[s.find(b'=')+1:].strip()
+            ads_ch = np.fromstring(ch_str.decode(), dtype=np.float, count=5, sep=' ')
+            s = data.readline()
+            seg_str = s[s.find(b'=')+1:].strip()
+            ads_seg = np.fromstring(seg_str.decode(), dtype=np.float, count=5, sep=' ')
+
+            return np.array([[ads_ch[0], ads_ch[2]], [ads_seg[0], ads_seg[2]]])
+
+
+        data.seek(data.find(strsearch))
+        s = data.readline()
+        num_str = s[s.find(b'=')+1:].strip()
+        num = np.fromstring(num_str.decode(), dtype=np.float, count=5, sep=' ')
+
+        data.seek(data.find(strsearch))
+        s = data.readline()
+        len_str = s[s.find(b'=')+1:].strip()
+        length = np.fromstring(len_str.decode(), dtype=np.float, count=5, sep=' ')
+
+        data.seek(data.find(strsearch))
+        s = data.readline()
+        num_seg_str = s[s.find(b'=')+1:].strip()
+        num_seg = np.fromstring(num_seg_str.decode(), dtype=np.float, count=5, sep=' ')
+
+        return np.array([ [num[0], num[2]], [length[0], length[2]], [num_seg[0], num_seg[2]] ])
+    
+def gettubeOLTT(fin, restype=''):
+
+    ''' Extracts data about loops, tails, trains and adsorbed chains/monomers of outer tube surface from Molsim's out-file.
+    Input:  fin - file in
+            restype - type of result. Can be 'loops', 'tails', 'trains' or 'adsorbed'
+    Output: 2D array of results on the form
+                [number of x]                   [variation (fluctuation)],
+                [length of x]                   [variation],
+                [number of segments in x]       [variation]
+            in the case of x = 'loops', 'tails' or 'trains', or on the form
+                [number of adsorbed chains]     [variation],
+                [number of adsorbed segments]   [variation]
+            in the case of 'adsorbed'
+            Note: loops, tails and trains are average number per (adsorbed?) chain!
+    '''
+    # 'outsim' not in fin:
+    #if 'cylinder' not in fin:
+    #    errmsg = "Not an outsim file. Exiting getLTT()."
+    #    sys.exit(errmsg)
+
+    
+    if 'tail' in restype.lower():
+        strsearch = b'tail'
+    elif 'train' in restype.lower():
+        strsearch = b'train'
+    elif 'loop' in restype.lower():
+        strsearch = b'loop'
+    elif 'ads' in restype.lower():
+        strsearch = b'adsorbed'
+    else:
+        print('getLTT(): Can not find restype')
+        return 0
+
+
+    with open(fin, "r+b") as infile:
+        data = mmap.mmap(infile.fileno(), 0, access=mmap.ACCESS_READ)  # Map file to memory, read only
+
+        ind = data.seek(data.find(b'adsorbing surface              =       +'))
+        if ind == -1:
+            errmsg = "Error searching for \"{}\": Didn't find specified string".format(strsearch)
+            sys.exit(errmsg)
+            
+#        data.seek(data.find(b'loop, tail, and train characteristics')) # To ensure, change this to "loop, tail, and train characteristics of outer surface"
+        data.readline()  # Ensure we're at the beginning of the next line,
+                         # so e.g. data.seek(loop) doesn't find 'loop' in 'loop, tail, and train characteristics'
+
+        if strsearch == b'adsorbed':
+            ind = data.find(strsearch)
+            data.seek(ind)
+
+            s = data.readline()
+            ch_str = s[s.find(b'=')+1:].strip()
+            ads_ch = np.fromstring(ch_str.decode(), dtype=np.float, count=5, sep=' ')
+            s = data.readline()
+            seg_str = s[s.find(b'=')+1:].strip()
+            ads_seg = np.fromstring(seg_str.decode(), dtype=np.float, count=5, sep=' ')
+
+            return np.array([[ads_ch[0], ads_ch[2]], [ads_seg[0], ads_seg[2]]])
+
+
+        data.seek(data.find(strsearch))
+        s = data.readline()
+        num_str = s[s.find(b'=')+1:].strip()
+        num = np.fromstring(num_str.decode(), dtype=np.float, count=5, sep=' ')
+
+        data.seek(data.find(strsearch))
+        s = data.readline()
+        len_str = s[s.find(b'=')+1:].strip()
+        length = np.fromstring(len_str.decode(), dtype=np.float, count=5, sep=' ')
+
+        data.seek(data.find(strsearch))
+        s = data.readline()
+        num_seg_str = s[s.find(b'=')+1:].strip()
+        num_seg = np.fromstring(num_seg_str.decode(), dtype=np.float, count=5, sep=' ')
+
+        return np.array([ [num[0], num[2]], [length[0], length[2]], [num_seg[0], num_seg[2]] ])    
 # Small conversion functions
 # 1 C/m^2 = 6.24151 e/nm^2
 

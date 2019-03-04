@@ -5,7 +5,13 @@ import molsim_utilities as mu
 
 ##fixing numbers, opposite charge : neg/pos
 
-strtype = ['m30m10']#, 'm10m20m10', 'm10m10m10m10']
+
+#strtype = ['m40p', 'm40n', 'm5m10m5', 'm10m10m10m10', 'm10m20m10', 'm20m20'] 
+#chargeratio = ['0', '0', '1', '1', '1', '1']
+
+strtype = ['m40n', 'm40p', 'm5m20m5', 'm10m10m10', 'm20m10', 'm5m30m5', 'm15m10m15', 'm30m10'] 
+chargeratio = ['0', '0', '2', '2', '2', '3', '3', '3']
+#strtype = ['m30m10', 'm5m30m5','m15m10m15']
 
 pathstring  = []
 
@@ -14,8 +20,7 @@ linecolor = ['wheat', 'gold', 'orange', 'darkorange', 'chocolate', 'sienna', 'sa
 linecolor2 = ['powderblue', 'lightblue', 'lightskyblue', 'royalblue', 'blue', 'mediumblue', 'darkblue']
 
 for i in range(len(strtype)):
-    pathstring.append('alsi/polymer/quenchedpoly/{:s}/'.format(str(strtype[i])))
-
+    pathstring.append('alsi/polymer/quenchedpoly/{:s}'.format(str(chargeratio[i])) + '/{:s}/'.format(str(strtype[i])))
 
 for j in range(len(pathstring)):
     for p in sorted(Path(str(pathstring[j])).glob('zero/ph*/cylinder_shell.list')):
@@ -48,17 +53,17 @@ for j in range(len(pathstring)):
         
         plt.figure(3)
         #plt.subplot(313)        
-        plt.plot(d[:,0], f[:,1], label = labelstring, color = '{:s}'.format(linecolor[int(p.parts[-2][2])-2]))     
+        plt.plot(f[:,0], f[:,1], label = labelstring, color = '{:s}'.format(linecolor[int(p.parts[-2][2])-2]))     
         plt.title('{:s}'.format(titlestring)+'\nProbability of outer tube surface')
        
-        
+    #for k in range(len(pathstring)):   
     plt.figure(1)
     plt.ylim(0.000, 1.000)
     plt.ylabel('Prob(d<7.1Å)')
     plt.xlabel('Monomer index')
     plt.legend()
     
-    plt.figure(2)             
+    plt.figure(2)
     plt.ylim(0.000, 1.000)
     plt.ylabel('Prob(d<7.1Å)')
     plt.xlabel('Monomer index')
@@ -69,8 +74,11 @@ for j in range(len(pathstring)):
     plt.ylabel('Prob(d<7.1Å)')
     plt.xlabel('Monomer index')
     plt.legend()
-    #    plt.title('{:s}'.format(titlestring)+'\nProbability of inner/outer tube surface')
+
     plt.show()
+
+    #    plt.title('{:s}'.format(titlestring)+'\nProbability of inner/outer tube surface')
+    
     
     
     

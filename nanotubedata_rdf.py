@@ -2,144 +2,59 @@ import numpy as np               # http://www.numpy.org/
 import matplotlib.pyplot as plt    # https://matplotlib.org/
 from pathlib import Path         # https://docs.python.org/3.5/library/pathlib.html#module-pathlib
 import molsim_utilities as mu
+import pylab as py
 
 ##fixing numbers, opposite charge : neg/pos
-m40nree = [] # [[bin,value,stdev], [bin,value,stdev], [bin,value,stdev]]
-m40nreelabel = []
 
+strtype = ['m40n', 'm40p', 'm40nretry', 'm40pretry', 'm40ncen', 'm40pcen'] 
+chargeratio = ['0', '0', '0', '0', '0', '0']
+#strtype = ['m30m10', 'm5m30m5','m15m10m15']
 
-m40pree = []
-m40nrg = [] # [[bin],[value],[stdev]]
-m40prg = []
-m40nrdf = [] # [[bin],[value],[stdev]]
-m40prdf = []
-
-ph = []
-bin = []
-ree = []
-reeerr = []
-rg = []
-rgerr = []
-rdf = []
-rdferr = []
+pathstring  = []
 
 ph = []
 linecolor = ['wheat', 'gold', 'orange', 'darkorange', 'chocolate', 'sienna', 'saddlebrown']
 linecolor2 = ['powderblue', 'lightblue', 'lightskyblue', 'royalblue', 'blue', 'mediumblue', 'darkblue']
 
-for p in sorted(Path('alsi/polymer/quenchedpoly/m40n/zero/').glob('ph*/cylinder_shell.list')):
-    print(p)  
-    d = mu.getDistribution(p, 'ree pa')    
-#    labelstring = 'ph = {:d}'.format( int(p.parts[1][2]) )
-    labelstring = 'ph = {:d}'.format(int(p.parts[-2][2])) 
-    print(p.parts)
-    print(p.parts[-2])
-    print(p.parts[-2][2])
-    ph.append(p.parts[-2][2])
-    reetemp = d
-    m40nree.append(d)  
-    m40nreelabel.append(labelstring)
-    
-    plt.figure(1)
-#    plt.subplot(211)
-    plt.plot(d[:,0], d[:,1], label = labelstring, color = '{:s}'.format(linecolor[int(p.parts[-2][2])-2]))     
-plt.legend()
-plt.ylim(0.000, 0.020)
-plt.ylabel('[Å]')
-plt.title('m40n Ree')
-plt.show()
-    
-for p in sorted(Path('alsi/polymer/quenchedpoly/m40p/zero/').glob('ph*/cylinder_shell.list')):
-    print(p)  
-    d = mu.getDistribution(p, 'ree pa')    
-#    labelstring = 'ph = {:d}'.format( int(p.parts[1][2]) )
-    labelstring = 'ph = {:d}'.format(int(p.parts[-2][2])) 
-    print(p.parts)
-    print(p.parts[-2])
-    print(p.parts[-2][2])
-    ph.append(p.parts[-2][2])
-    reetemp = d
-    m40nree.append(d)  
-    m40nreelabel.append(labelstring)
-    
-    plt.figure(2)    
-    plt.plot(d[:,0], d[:,1], label = labelstring, color = '{:s}'.format(linecolor2[int(p.parts[-2][2])-2]), linestyle = '--')         
-plt.legend()
-plt.ylim(0.000, 0.020)
-plt.ylabel('[Å]')
-plt.title('m40p Ree') 
+for i in range(len(strtype)):
+    pathstring.append('alsi/polymer/quenchedpoly/{:s}'.format(str(chargeratio[i])) + '/{:s}/'.format(str(strtype[i])))
 
+for j in range(len(pathstring)):
+    for p in sorted(Path(str(pathstring[j])).glob('zero/ph*/cylinder_shell.list')):
+        print(p)  
+        d = mu.getDistribution(p, 'ree pa') 
+        e = mu.getDistribution(p, 'rg pa') 
+        #f = mu.getDistribution(p, 'rg pa')
 
-for p in sorted(Path('alsi/polymer/quenchedpoly/m40n/zero/').glob('ph*/cylinder_shell.list')):
-    print(p)  
-    d = mu.getDistribution(p, 'rg pa')    
-#    labelstring = 'ph = {:d}'.format( int(p.parts[1][2]) )
-    labelstring = 'ph = {:d}'.format(int(p.parts[-2][2])) 
-    print(p.parts)
-    print(p.parts[-2])
-    print(p.parts[-2][2])
-    ph.append(p.parts[-2][2])
-    reetemp = d
-#    m40nrg.append(d)  
-#    m40nrglabel.append(labelstring)
-    
-    plt.figure(3)
-#    plt.subplot(211)
-    plt.plot(d[:,0], d[:,1], label = labelstring, color = '{:s}'.format(linecolor[int(p.parts[-2][2])-2]))     
-plt.legend()
-plt.ylim(0.000, 0.150)
-plt.ylabel('[Å]')
-plt.title('m40n Rg')
-plt.show()
-    
-for p in sorted(Path('alsi/polymer/quenchedpoly/m40p/zero/').glob('ph*/cylinder_shell.list')):
-    print(p)  
-    d = mu.getDistribution(p, 'rg pa')    
-#    labelstring = 'ph = {:d}'.format( int(p.parts[1][2]) )
-    labelstring = 'ph = {:d}'.format(int(p.parts[-2][2])) 
-    print(p.parts)
-    print(p.parts[-2])
-    print(p.parts[-2][2])
-    ph.append(p.parts[-2][2])
-    reetemp = d
-#    m40nree.append(d)  
-#    m40nreelabel.append(labelstring)
-    
-    plt.figure(4)    
-    plt.plot(d[:,0], d[:,1], label = labelstring, color = '{:s}'.format(linecolor2[int(p.parts[-2][2])-2]), linestyle = '--')         
-plt.legend()
-plt.ylim(0.000, 0.150)
-#plt.ylabel('[Å]')
-plt.title('m40p Rg') 
-'''
-# Extracting charge data from .out files
-alpha_1 = []
-alpha_2 = []
-alpha_error_1 = []
-alpha_error_2 = []
-ph = []
-for p in sorted(Path('alsi/polymer/quenchedpoly/m40n/zero/').glob('ph*/cylinder_shell.out')):
-    print(p)  
-    # mu.getAvgPartCharge() returns three values: average charge fraction, precision and fluctuation
-    # Input arguments are: mu.getAvgPartCharge( [path to file in], [particle type] )
-    # Note that the particle type must be given as a string
-    charge_1 = mu.getAvgPartCharge(p, 'alumina')
-    charge_2 = mu.getAvgPartCharge(p, 'silica')
-
-    alpha_1.append( charge_1[0] )
-    alpha_2.append( charge_2[0] )
-
-    alpha_error_1.append( charge_1[2] )
-    alpha_error_2.append( charge_2[2] )
-    ph.append( int(p.parts[-2][2]) )
+        labelstring = 'ph = {:d}'.format(int(p.parts[-2][2])) 
+        print(p.parts)
+        print(p.parts[-2])
+        print(p.parts[-2][2])
+        ph.append(p.parts[-2][2])
         
-    plt.figure(5)    
-    plt.plot(d[:,0], d[:,1], label = labelstring, color = '{:s}'.format(linecolor[int(p.parts[-2][2])-2]), linestyle = '--')         
-plt.legend()
-plt.ylim(0.000, 0.020)
-plt.title('m40p rg') 
-    
+        plt.figure(1)
+        plt.plot(d[:,0], d[:,1], label = labelstring, color = '{:s}'.format(linecolor[int(p.parts[-2][2])-2])) 
+        plt.ylim(0.00, 0.5)
+        plt.title('{:s}'.format(str(strtype[j])) + ' Ree')
+        
+        plt.figure(2)
+        plt.plot(e[:,0], e[:,1], label = labelstring, color = '{:s}'.format(linecolor[int(p.parts[-2][2])-2])) 
+        plt.ylim(0.00, 0.5)       
+        plt.title('{:s}'.format(str(strtype[j])) + ' Rg')
 
-print('\n pH: ', ph, '\n alpha_1: ', alpha_1, '\n alpha_error: ', alpha_error_1)
-print('\n pH: ', ph, '\n alpha_2: ', alpha_2, '\n alpha_error: ', alpha_error_2)
-'''
+    plt.figure(1)
+    plt.ylim(0.00, 0.5)
+    plt.ylabel('$g(r)$')
+    plt.xlabel('$r[Å]$')
+    plt.legend()
+    py.savefig('{:s}'.format(str(strtype[j])) + '-ree.pdf') 
+    
+    plt.figure(2)
+    plt.ylim(0.00, 0.5)
+    plt.ylabel('$g(r)$')
+    plt.xlabel('$r$')
+    plt.legend()
+    py.savefig('{:s}'.format(str(strtype[j])) + '-rg.pdf')              
+    
+    plt.show()                                                              
+
