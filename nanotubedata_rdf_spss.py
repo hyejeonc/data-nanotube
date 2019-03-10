@@ -8,6 +8,8 @@ import pandas as pd
 
 
 strtype = ['m20m20', 'm10m20m10', 'm10m10m10m10'] 
+chargeratio = ['1', '1', '1']
+
 #strtype = ['m30m10', 'm5m30m5','m15m10m15']
 
 
@@ -22,13 +24,15 @@ rg = []
 #linecolor2 = ['powderblue', 'lightblue', 'lightskyblue', 'royalblue', 'blue', 'mediumblue', 'darkblue']
 
 for i in range(len(strtype)):
-    pathstring.append('alsi/polymer/quenchedpoly/{:s}/'.format(str(strtype[i])))
+    pathstring.append('alsi/polymer/quenchedpoly/{:s}'.format(str(chargeratio[i])) + '/{:s}/'.format(str(strtype[i])))
 
+reesum = pd.DataFrame
+startcount = 1
 for j in range(len(pathstring)):
     for p in sorted(Path(str(pathstring[j])).glob('zero/ph*/cylinder_shell.list')):
         print(p)  
-        d = mu.getDistribution(p, 'ree pa') 
-        e = mu.getDistribution(p, 'rg pa') 
+        reesingle = mu.getDistribution(p, 'ree pa')  
+        rgsingle = mu.getDistribution(p, 'rg pa') 
         #f = mu.getDistribution(p, 'rg pa')
 
         labelstring = 'ph = {:d}'.format(int(p.parts[-2][2])) 
@@ -37,24 +41,43 @@ for j in range(len(pathstring)):
         print(p.parts[-2][2])
         ph.append(p.parts[-2][2])
                 
-        dd = pd.DataFrame(d, columns = ['Monomer index', 'Prob', 'Err'])
-        dd['pH'] = int(p.parts[-2][2])
-        dd['Structure'] = str(p.parts[-4])
-        dd['Charge ratio'] = str(p.parts[-5])
-        dd['R-type'] = 'Ree'  
+        ree = pd.DataFrame(reesingle, columns = ['Monomer index', 'Prob', 'Err']) 
+        ree['pH'] = int(p.parts[-2][2])
+        ree['Structure'] = str(p.parts[-4])
+        ree['Charge ratio'] = str(p.parts[-5])
+        ree['R-type'] = 'Ree'  
+            
+        rg = pd.DataFrame(rgsingle, columns = ['Monomer index', 'Prob', 'Err'])
+        rg['pH'] = int(p.parts[-2][2])
+        rg['Structure'] = str(p.parts[-4])
+        rg['Charge ratio'] = str(p.parts[-5])
+        rg['R-type'] = 'Rg' 
 
-        ee = pd.DataFrame(d, columns = ['Monomer index', 'Prob', 'Err'])
-        ee['pH'] = int(p.parts[-2][2])
-        ee['Structure'] = str(p.parts[-4])
-        ee['Charge ratio'] = str(p.parts[-5])
-        ee['R-type'] = 'Rg'         
+        local = str(p.parts[-4])
+        if local.find('cen') == True:
+            ree['Location'] = 'Inside'
+            rg['Location'] = 'Inside'
+        else:
+            ree['Location'] = 'Outside'
+            rg['Location'] = 'Outside'
     
-    ree = pd.merge(ree, dd, how = 'outer')
-     
+    
+        if startcount == 1:
 
-        
-        
-  '''      
+            #reesum = ree
+            ree.to_csv("ree.csv", mode="w")
+            rg.to_csv("ree.csv", mode="a", header=False)
+        else:    
+            ree.to_csv("ree.csv", mode="a", header=False)
+            rg.to_csv("ree.csv", mode="a", header=False)
+
+            #pd.merge(reesum, ree, on = 'Monomer index')
+
+        startcount += 1
+
+            
+ 
+'''         
         plt.figure(1)
         plt.plot(d[:,0], d[:,1], label = labelstring, color = '{:s}'.format(linecolor[int(p.parts[-2][2])-2])) 
         plt.title('{:s}'.format(str(strtype[j])) + 'Ree')
