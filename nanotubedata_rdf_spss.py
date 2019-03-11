@@ -7,9 +7,10 @@ import pandas as pd
 ##fixing numbers, opposite charge : neg/pos
 
 
-strtype = ['m20m20', 'm10m20m10', 'm10m10m10m10'] 
-chargeratio = ['1', '1', '1']
-
+strtype = ['m40ncen', 'm20m20', 'm10m20m10', 'm10m10m10m10', 'm5m10m5', 'm5m20m5', 'm10m10m10', 'm20m10', 'm5m30m5', 'm15m10m15', 'm30m10', 'm10m5m10', 'm15m5m15' ] 
+chargeratio = ['0', '1', '1', '1', '1', '2', '2', '2', '3', '3', '3' , '4', '6' ]
+monomernumber = ['40', '40', '40', '40', '20', '30', '30', '30', '40', '40', '40', '25', '35' ]
+polymer = ['0', '2', '3', '4', '3', '3', '3', '3', '2', '3', '3', '2', '3', '3' ] 
 #strtype = ['m30m10', 'm5m30m5','m15m10m15']
 
 
@@ -44,17 +45,21 @@ for j in range(len(pathstring)):
         ree = pd.DataFrame(reesingle, columns = ['Monomer index', 'Prob', 'Err']) 
         ree['pH'] = int(p.parts[-2][2])
         ree['Structure'] = str(p.parts[-4])
+        ree['Polymer type'] = polymer[j]
         ree['Charge ratio'] = str(p.parts[-5])
+        ree['Monomer number'] = monomernumber[j]
         ree['R-type'] = 'Ree'  
             
         rg = pd.DataFrame(rgsingle, columns = ['Monomer index', 'Prob', 'Err'])
         rg['pH'] = int(p.parts[-2][2])
         rg['Structure'] = str(p.parts[-4])
+        rg['Polymer type'] = polymer[j]
         rg['Charge ratio'] = str(p.parts[-5])
+        rg['Monomer number'] = monomernumber[j]
         rg['R-type'] = 'Rg' 
 
         local = str(p.parts[-4])
-        if local.find('cen') == True:
+        if local.find('cen') == True: ##이 부분이 안됨!!!!! 
             ree['Location'] = 'Inside'
             rg['Location'] = 'Inside'
         else:
