@@ -58,6 +58,7 @@ axs[0].plot(d[:,0], d[:,1], label = 'out', color = 'black', linestyle = ':')
 
         
 axs[0].legend(fontsize = 8)
+axs[0]
 #    axs[0].text(31,0.14, '(a)', fontsize=10)
 #   axs[0].legend([(a)], loc= upper left)
 #    fig2 = plt.plot(e[:,0], e[:,1], label = labelstring,\
@@ -82,11 +83,11 @@ for p in sorted(Path('../alsi/polymer/quenchedpoly/0/m40pretry/zero/').glob('ph*
 #    m40nree.append(d)  
 #    m40nreelabel.append(labelstring)
     
-    #fig1 = plt.plot()
+    
     axs[1].plot(e[:,0], e[:,1], label = labelstring, \
                     color = '{:s}'.format(linecolor2[int(p.parts[-2][2])-2]), linestyle = '-')         
     axs[1].legend(fontsize=8)
-    axs[1].plot(e[:,0], f[:,1], label = labelstring, \
+    axs[1].plot(e[:,0], e[:,1], label = labelstring, \
                     color = '{:s}'.format(linecolor2[int(p.parts[-2][2])-2]), linestyle = '-')         
     axs[1].legend(fontsize=8)
     
@@ -111,7 +112,7 @@ axs[1].set_ylabel(r'$g(r)$')
 axs[1].set_xlim(30, 80)
 axs[1].set_xlabel(r'$r\ [Å]$')
 
-fig.savefig('fig/rg_neg_pos_40_forlegend2.pdf')
+fig.savefig('fig/rg_neg_pos_40_for_inout_legend3.pdf')
 '''
 axs[2].plot(t, s3)
 axs[2].set_yticks(np.arange(-0.9, 1.0, 0.4))

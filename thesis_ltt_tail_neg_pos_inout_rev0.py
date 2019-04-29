@@ -7,8 +7,8 @@ import pandas as pd
 
 ##fixing numbers, opposite charge : neg/pos
 
-strtype = ['m40nretry', 'm40pretry']#, 'm10m20m10', 'm5m30m5', 'm30m10', 'm40nretry'] #'m10m10m10m10', 'm5m10m5'] 
-chargeratio = ['0', '0']#, '1', '3', '3', '0']
+strtype = ['m40nretry', 'm40pretry', 'm40ncenxyz', 'm40pcenxyz'] #, 'm10m20m10', 'm5m30m5', 'm30m10', 'm40nretry'] #'m10m10m10m10', 'm5m10m5'] 
+chargeratio = ['0', '0', '0', '0'] #, '1', '3', '3', '0']
 
 #strtype = ['m40nretry', 'm40ncen', '] 
 #chargeratio = ['0', '0']
@@ -94,11 +94,9 @@ for j in range(len(pathstring)):
         #io_loops = mu.gettubeIOLTT(p, 'loops')  #choose itube/otube/iotube 
         #io_tails = mu.gettubeIOLTT(p, 'tails')
         #io_trains = mu.gettubeIOLTT(p, 'trains')        
-        i_loops = mu.gettubeILTT(p, 'trains')  #choose itube/otube/iotube 
-
-        
-        o_loops = mu.gettubeOLTT(p, 'trains')  #choose itube/otube/iotube 
-
+        i_loops = mu.gettubeILTT(p, 'tails')  #choose itube/otube/iotube 
+        o_loops = mu.gettubeOLTT(p, 'tails')  #choose itube/otube/iotube 
+        io_loops = i_loops + o_loops
         
 ##    Input:  fin - file in
 ##            restype - type of result. Can be 'loops', 'tails', 'trains' or 'adsorbed'
@@ -112,11 +110,16 @@ for j in range(len(pathstring)):
 ##            in the case of 'adsorbed'
 ##    Note: loops, tails and trains are average number per (adsorbed?) chain!
         
-        print(p.parts[-4])
-        if p.parts[-4] == 'm40nretry':
-            titlestring = 'neg'
-        else: 
-            titlestring = 'pos'
+        
+        if j == 0:
+            titlestring = 'neg, out'
+        elif j == 1:
+            titlestring = 'pos, out'
+        elif j == 2:
+            titlestring = 'neg, in'
+        elif j == 3:
+            titlestring = 'pos, in'
+            
             #titlestring = '{:s}'.format(str(p.parts[-4]))
             
         labelstring = 'pH = {:d}'.format(int(p.parts[-2][2]))
@@ -127,12 +130,10 @@ for j in range(len(pathstring)):
         print(p.parts[-2][2])
         ph.append(p.parts[-2][2])
         
-        len_io_loop.append(max(i_loops[1][0], o_loops[1][0]))
-        len_io_loop_errdown.append\
-        (min((i_loops[1][0]-0.5*i_loops[1][1]), (o_loops[1][0]-0.5*o_loops[1][1])))
-        len_io_loop_errup.append\
-        (max((i_loops[1][0]+0.5*i_loops[1][1]), (o_loops[1][0]+0.5*o_loops[1][1])))
- 
+        len_io_loop.append(io_loops[1][0])
+        len_io_loop_errdown.append(io_loops[1][0]-0.5*io_loops[1][1])
+        len_io_loop_errup.append(io_loops[1][0]+0.5*io_loops[1][1])
+    
         len_i_loop.append(i_loops[1][0])
         len_i_loop_errdown.append(i_loops[1][0]-0.5*i_loops[1][1])
         len_i_loop_errup.append(i_loops[1][0]+0.5*i_loops[1][1])
@@ -141,12 +142,10 @@ for j in range(len(pathstring)):
         len_o_loop_errdown.append(o_loops[1][0]-0.5*o_loops[1][1])
         len_o_loop_errup.append(o_loops[1][0]+0.5*o_loops[1][1])
 
-        num_io_loop.append(max(i_loops[0][0], o_loops[0][0]))
-        num_io_loop_errdown.append\
-        (min((i_loops[0][0]-0.5*i_loops[0][1]), (o_loops[1][0]-0.5*o_loops[1][1])))
-        num_io_loop_errup.append\
-        (max((i_loops[0][0]+0.5*i_loops[0][1]), (o_loops[1][0]+0.5*o_loops[1][1])))
-
+        num_io_loop.append(io_loops[0][0])
+        num_io_loop_errdown.append(io_loops[0][0]-0.5*io_loops[0][1])
+        num_io_loop_errup.append(io_loops[0][0]+0.5*io_loops[0][1])
+        
         num_i_loop.append(i_loops[0][0])
         num_i_loop_errdown.append(i_loops[0][0]-0.5*i_loops[0][1])
         num_i_loop_errup.append(i_loops[0][0]+0.5*i_loops[0][1])
@@ -155,12 +154,10 @@ for j in range(len(pathstring)):
         num_o_loop_errdown.append(o_loops[0][0]-0.5*o_loops[0][1])
         num_o_loop_errup.append(o_loops[0][0]+0.5*o_loops[0][1])
         
-        seg_io_loop.append(max(i_loops[2][0], o_loops[2][0]))
-        seg_io_loop_errdown.append\
-        (min((i_loops[2][0]-0.5*i_loops[2][1]), (o_loops[2][0]-0.5*o_loops[2][1])))
-        seg_io_loop_errup.append\
-        (max((i_loops[2][0]+0.5*i_loops[2][1]), (o_loops[2][0]+0.5*o_loops[2][1])))
-
+        seg_io_loop.append(io_loops[2][0])
+        seg_io_loop_errdown.append(io_loops[2][0]-0.5*io_loops[2][1])
+        seg_io_loop_errup.append(io_loops[2][0]+0.5*io_loops[2][1])
+        
         seg_i_loop.append(i_loops[2][0])
         seg_i_loop_errdown.append(i_loops[2][0]-0.5*i_loops[2][1])
         seg_i_loop_errup.append(i_loops[2][0]+0.5*i_loops[2][1])
@@ -172,37 +169,37 @@ for j in range(len(pathstring)):
         lendata = {}
 
     plt.figure(1)
-    axs[0].plot(ph, len_o_loop, label = titlestring,\
+    axs[0].plot(ph, len_io_loop, label = titlestring,\
                     color = linecolor1[j], linestyle = '-')         
-    axs[0].fill_between(ph, len_o_loop_errdown, len_o_loop_errup, color = linecolor1[j], alpha = 0.2 )
-    axs[0].legend(fontsize = 8, loc=(0.86, 0.15))
+    axs[0].fill_between(ph, len_io_loop_errdown, len_io_loop_errup, color = linecolor1[j], alpha = 0.2 )
+    axs[0].legend(fontsize = 8)
    # axs[0].get_legend().set_legend_coords(7.5, 1.5)
-    axs[0].set_ylim(-0.2, 5.5)
+    #axs[0].set_ylim(-0.2, 5.5)
    # axs[0].gca().yaxis.grid(True)
-    axs[0].set_ylabel(r'$<l_{train}>$')
+    axs[0].set_ylabel(r'$<l_{tail}>$')
     axs[0].get_yaxis().set_label_coords(-0.07, 0.5)
     axs[0].set_xlabel(r'$pH$')
     #axs[0].set_xlim(50, 270)
     
-    axs[1].plot(ph, num_o_loop, label = titlestring,\
+    axs[1].plot(ph, num_io_loop, label = titlestring,\
                     color = linecolor1[j] , linestyle = '-')         
-    axs[1].fill_between(ph, num_o_loop_errdown, num_o_loop_errup, color = linecolor1[j], alpha = 0.2 )
+    axs[1].fill_between(ph, num_io_loop_errdown, num_io_loop_errup, color = linecolor1[j], alpha = 0.2 )
     #axs[1].legend(fontsize = 8)
-    axs[1].set_ylabel(r'$<N_{train}>$')
+    axs[1].set_ylabel(r'$<N_{tail}>$')
     axs[1].get_yaxis().set_label_coords(-0.07, 0.5)
-    axs[1].set_ylim(-0.2, 5)
+    #axs[1].set_ylim(-0.2, 5)
     axs[1].set_xlabel(r'$pH$')
     #axs[1].yaxis.grid()    
     
-    axs[2].plot(ph, seg_o_loop, label = titlestring,\
+    axs[2].plot(ph, seg_io_loop, label = titlestring,\
                     color = linecolor1[j], linestyle = '-')         
-    axs[2].fill_between(ph, seg_o_loop_errdown, seg_o_loop_errup, color = linecolor1[j], alpha = 0.2 )
+    axs[2].fill_between(ph, seg_io_loop_errdown, seg_io_loop_errup, color = linecolor1[j], alpha = 0.2 )
     #axs[2].legend(fontsize = 8)
-    axs[2].set_ylabel(r'$<N_{seg,train}>$')
+    axs[2].set_ylabel(r'$<N_{seg,tail}>$')
     axs[2].get_yaxis().set_label_coords(-0.07, 0.5)
-    axs[2].set_ylim(-0.2, 19)
+    #axs[2].set_ylim(-0.2, 19)
     axs[2].set_xlabel(r'$pH$')
     
 
     
-#fig.savefig('fig/train_neg_pos_40_rev2.pdf') 
+fig.savefig('fig/tail_neg_pos_inout_40_rev0.pdf') 

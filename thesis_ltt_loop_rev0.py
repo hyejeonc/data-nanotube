@@ -135,12 +135,10 @@ for j in range(len(pathstring)):
         #io_tails = mu.gettubeIOLTT(p, 'tails')
         #io_trains = mu.gettubeIOLTT(p, 'trains')        
         i_loops = mu.gettubeILTT(p, 'loops')  #choose itube/otube/iotube 
-        i_tails = mu.gettubeILTT(p, 'tails')
-        i_trains = mu.gettubeILTT(p, 'trains')   
+
         
         o_loops = mu.gettubeOLTT(p, 'loops')  #choose itube/otube/iotube 
-        o_tails = mu.gettubeOLTT(p, 'tails')
-        o_trains = mu.gettubeOLTT(p, 'trains')  
+  
         
 ##    Input:  fin - file in
 ##            restype - type of result. Can be 'loops', 'tails', 'trains' or 'adsorbed'
@@ -260,20 +258,23 @@ for j in range(len(pathstring)):
     plt.figure(1)
     axs[0].plot(ph, len_o_loop, label = titlestring,\
                     color = linecolor1[j], linestyle = '-')         
-    axs[0].fill_between(ph, len_o_loop_errdown, len_io_loop_errup, color = linecolor1[j], alpha = 0.2 )
+    axs[0].fill_between(ph, len_o_loop_errdown, len_o_loop_errup, color = linecolor1[j], alpha = 0.2 )
     axs[0].legend(fontsize = 8)
-    axs[0].set_ylim(-0.2, 13)
+    axs[0].set_ylim(-0.2, 11)
    # axs[0].gca().yaxis.grid(True)
     axs[0].set_ylabel(r'$<l_{loop}>$')
-    
+    axs[0].get_yaxis().set_label_coords(-0.07, 0.5)
+    axs[0].set_xlabel(r'$pH$')
     #axs[0].set_xlim(50, 270)
     
     axs[1].plot(ph, num_o_loop, label = titlestring,\
                     color = linecolor1[j] , linestyle = '-')         
     axs[1].fill_between(ph, num_o_loop_errdown, num_o_loop_errup, color = linecolor1[j], alpha = 0.2 )
-    #axs[1].legend(fontsize = 8)
-    axs[1].set_ylabel(r'$<N_{loop}>$'+'\n')
+    #axs[1].legend(fontsize = 8) 
+    axs[1].set_ylabel(r'$<N_{loop}>$')
+    axs[1].get_yaxis().set_label_coords(-0.07, 0.5)
     axs[1].set_ylim(-0.2, 5.0)
+    axs[1].set_xlabel(r'$pH$')
     #axs[1].yaxis.grid()    
     
     axs[2].plot(ph, seg_o_loop, label = titlestring,\
@@ -282,6 +283,8 @@ for j in range(len(pathstring)):
     #axs[2].legend(fontsize = 8)
     axs[2].set_ylabel(r'$<N_{seg,loop}>$')
     axs[2].set_ylim(-0.2, 23)
+    axs[2].get_yaxis().set_label_coords(-0.07, 0.5)
+    axs[2].set_xlabel(r'$pH$')
     
     
 

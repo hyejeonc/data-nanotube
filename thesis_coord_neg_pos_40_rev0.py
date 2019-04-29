@@ -25,14 +25,17 @@ linecolor2 = ['lightsteelblue', 'lightblue', 'lightskyblue', 'royalblue', 'blue'
 for i in range(len(strtype)):
     pathstring.append('../alsi/polymer/quenchedpoly/{:s}'.format(str(chargeratio[i])) + '/{:s}/'.format(str(strtype[i])))
 plotlines=[]
+fig = []
 for j in range(len(pathstring)):
-    ph = []
+    fig.append([])
     for p in sorted(Path(str(pathstring[j])).glob('zero/ph*/cylinder_shell.list')):
         print(p)  
         e = mu.getDistribution(p, 'opt_d gr:3') 
         f = mu.getDistribution(p, 'zden gr:3') 
-
-        labelstring = 'pH = {:d}'.format(int(p.parts[-2][2]))
+        if '40n' in p.parts[-4]:
+            labelstring = 'neg, pH = {:d}'.format(int(p.parts[-2][2]))
+        else:
+            labelstring = 'pos, pH = {:d}'.format(int(p.parts[-2][2]))
         
         print(p.parts)
         print(p.parts[-2])
@@ -45,12 +48,15 @@ for j in range(len(pathstring)):
         f_errup = f[:,1] + 0.5*f[:,2]            
         
         plt.figure(1)  # in out 
-        fig1 = plt.plot(e[:,0], e[:,1], label=labelstring, color = linecolor[j][int(p.parts[-2][2])-2] ,linestyle='-')      
-        fig1 = plt.fill_between(e[:,0], e_errdown, e_errup, color = linecolor[j][int(p.parts[-2][2])-2] , alpha=0.2)
-        #axs[0].set_ylim(0.00, 0.5)  
-        fig1 = plt.ylabel(r'$P(r_{z=0})$', size=10)
-        fig1 = plt.xlabel(r'$r_{z=0} \ [\AA]$', size=10)
-        fig1 = plt.xlim(0, 60)
+        if '40n' in p.parts[-4]: 
+            fig[j] = plt.plot(e[:,0], e[:,1], label=labelstring, color = linecolor[j][int(p.parts[-2][2])-2] ,linestyle='-')      
+        else: 
+            fig[j] = plt.plot(e[:,0], e[:,1], label=labelstring, color = linecolor[j][int(p.parts[-2][2])-2] ,linestyle=':')      
+        fig[j] = plt.fill_between(e[:,0], e_errdown, e_errup, color = linecolor[j][int(p.parts[-2][2])-2] , alpha=0.2)
+        fig[j] = plt.legend(fontsize=8)  
+        fig[j]  = plt.ylabel(r'$P(r_{z=0})$', size=10)
+        fig[j] = plt.xlabel(r'$r_{z=0} \ [\AA]$', size=10)
+        fig[j]  = plt.xlim(0, 60)
         #fig1 = plt.legend(fontsize=8)
         area = 0
         for m in range(len(e)-1):
@@ -62,13 +68,16 @@ for j in range(len(pathstring)):
         #if j == 0:
         #    axs[0].legend(fontsize=8)
         plt.figure(2)
-        fig2 = plt.plot(f[:,0], f[:,1],  color = '{:s}'.format(linecolor[j][int(p.parts[-2][2])-2]) ,linestyle='-.'  )      
-        fig2 = plt.fill_between(f[:,0], f_errdown, f_errup, color = '{:s}'.format(linecolor[j][int(p.parts[-2][2])-2]) , alpha=0.2)
-        #axs[1].set_ylim(0.00, 0.5)    
-        fig2 = plt.ylabel(r'$P(r_z)$', size=10)
-        fig2 = plt.xlabel(r'$r_z\ [\AA]$', size=10)
-        fig2 = plt.xlim(-350, 350)
-        fig2 = plt.legend(fontsize=8)
+        if '40n' in p.parts[-4]:
+            fig[j] = plt.plot(f[:,0], f[:,1], label=labelstring, color = '{:s}'.format(linecolor[j][int(p.parts[-2][2])-2]) ,linestyle='-'  )      
+        else:
+            fig[j] = plt.plot(f[:,0], f[:,1], label=labelstring, color = '{:s}'.format(linecolor[j][int(p.parts[-2][2])-2]) ,linestyle=':'  )                  
+        fig[j] = plt.fill_between(f[:,0], f_errdown, f_errup, color = '{:s}'.format(linecolor[j][int(p.parts[-2][2])-2]) , alpha=0.2)
+        #fig[j] = plt.ylim(0.00, 0.5)    
+        fig[j] = plt.ylabel(r'$P(r_z)$', size=10)
+        fig[j] = plt.xlabel(r'$r_z\ [\AA]$', size=10)
+        fig[j] = plt.xlim(-350, 350)
+        fig[j] = plt.legend(fontsize=8)
         area2 = 0
         for n in range(len(f)-1):
             area2 += f[n][1]*abs(f[n+1][0]-f[n][0])
@@ -93,9 +102,9 @@ for j in range(len(pathstring)):
 #pyplot.legend([axs[0]])
 #plt.plot(f[:,0], d[:,0], e[:,0], f[:,0], label=['in+out', 'in', 'out'])
 plt.figure(1)
-plt.savefig("fig/coordxy_neg_pos_40_r0.pdf")    
+plt.savefig("fig/coordxy_neg_pos_40_r1.pdf")    
 plt.figure(2)
-plt.savefig("fig/coordz_neg_pos_40_r0.pdf")  
+plt.savefig("fig/coordz_neg_pos_40_r1.pdf")  
 '''
     plt.figure(2)      
     axs[0].plot(d[:,0], d[:,1], label=labelstring, color = '{:s}'.format(linecolor1[j]))      
