@@ -16,7 +16,7 @@ chargeratio = ['0', '0', '0', '0'] #, '1', '3', '3', '0']
 #strtype = ['m40ncen', 'm40pcen'] 
 #chargeratio = ['0', '0']
 #strtype = ['m30m10', 'm5m30m5','m15m10m15']
-fig, axs = plt.subplots(3, 1, sharex=True)
+fig, axs = plt.subplots(2, 1, sharex=True)
 fig.subplots_adjust(hspace=0)
 
 pathstring  = []
@@ -117,7 +117,7 @@ for j in range(len(pathstring)):
         print(p.parts[-2][2])
         ph.append(p.parts[-2][2])
         
-        #adsorbed chain
+        #adsorbed seg
         len_io_loop.append(io_loops[1][0])
         len_io_loop_errdown.append(io_loops[1][0]-0.5*io_loops[1][1])
         len_io_loop_errup.append(io_loops[1][0]+0.5*io_loops[1][1])
@@ -130,7 +130,7 @@ for j in range(len(pathstring)):
         len_o_loop_errdown.append(o_loops[1][0]-0.5*o_loops[1][1])
         len_o_loop_errup.append(o_loops[1][0]+0.5*o_loops[1][1])
 
-        #adsorbed segments
+        #adsorbed chain
         seg_io_loop.append(io_loops[0][0])
         seg_io_loop_errdown.append(io_loops[0][0]-0.5*io_loops[0][1])
         seg_io_loop_errup.append(io_loops[0][0]+0.5*io_loops[0][1])
@@ -153,21 +153,21 @@ for j in range(len(pathstring)):
    # axs[0].get_legend().set_legend_coords(7.5, 1.5)
     #axs[0].set_ylim(-0.2, 5.5)
    # axs[0].gca().yaxis.grid(True)
-    axs[0].set_ylabel(r'$<l_{train}>$')
-    axs[0].get_yaxis().set_label_coords(-0.07, 0.5)
+    axs[0].set_ylabel(r'$<N_{ads_seg}>$')
+    axs[0].get_yaxis().set_label_coords(-0.09, 0.5)
     axs[0].set_xlabel(r'$pH$')
     #axs[0].set_xlim(50, 270)
     
-    axs[1].plot(ph, num_io_loop, label = titlestring,\
+    axs[1].plot(ph, seg_io_loop, label = titlestring,\
                     color = linecolor1[j] , linestyle = '-')         
-    axs[1].fill_between(ph, num_io_loop_errdown, num_io_loop_errup, color = linecolor1[j], alpha = 0.2 )
+    axs[1].fill_between(ph, seg_io_loop_errdown, seg_io_loop_errup, color = linecolor1[j], alpha = 0.2 )
     #axs[1].legend(fontsize = 8)
-    axs[1].set_ylabel(r'$<N_{train}>$')
-    axs[1].get_yaxis().set_label_coords(-0.07, 0.5)
+    axs[1].set_ylabel(r'$<N_{ads_chain}>$')
+    axs[1].get_yaxis().set_label_coords(-0.09, 0.5)
     #axs[1].set_ylim(-0.2, 5)
     axs[1].set_xlabel(r'$pH$')
     #axs[1].yaxis.grid()    
-    
+    '''
     axs[2].plot(ph, seg_io_loop, label = titlestring,\
                     color = linecolor1[j], linestyle = '-')         
     axs[2].fill_between(ph, seg_io_loop_errdown, seg_io_loop_errup, color = linecolor1[j], alpha = 0.2 )
@@ -176,7 +176,7 @@ for j in range(len(pathstring)):
     axs[2].get_yaxis().set_label_coords(-0.07, 0.5)
     #axs[2].set_ylim(-0.2, 19)
     axs[2].set_xlabel(r'$pH$')
-    
+    '''
 
     
-fig.savefig('fig/train_neg_pos_inout_40_rev0.pdf') 
+fig.savefig('fig/adsorb_neg_pos_inout_40_rev0.pdf') 
