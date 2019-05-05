@@ -105,7 +105,7 @@ plotlines.append([axs[0], axs[1], axs[2]])
 #plt.legend([axs[0]])
 #plt.plot(f[:,0], d[:,0], e[:,0], f[:,0], label=['in+out', 'in', 'out'])
 
-fig.savefig("fig/contactprob_neg_pos_40_r0_without_legend.pdf")    
+fig.savefig("fig/contactprob_neg_pos_40_r1_without_legend.pdf")    
 
 '''
     plt.figure(2)      

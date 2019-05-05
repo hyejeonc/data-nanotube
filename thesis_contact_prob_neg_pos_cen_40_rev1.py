@@ -3,8 +3,9 @@ from pathlib import Path         # https://docs.python.org/3.5/library/pathlib.h
 import molsim_utilities as mu
 import pylab as py
 import numpy as np
-
+import matplotlib
 ##fixing numbers, opposite charge : neg/pos
+#matplotlib.rcParams['figure.figsize'] = (9,6)
 
 strtype = ['m40ncenxyz', 'm40pcenxyz'] 
 chargeratio = ['0', '0','0', '0' ]
@@ -54,10 +55,10 @@ for j in range(len(pathstring)):
         plt.figure(1)  # in out 
         if j == 0 :
             labelstring = 'neg, pH = {:d}'.format(int(p.parts[-2][2]))
-            axs[0].plot(d[:,0], d[:,1], label=labelstring, color = '{:s}'.format(linecolor[j][int(p.parts[-2][2])-2]) ,linestyle='-')      
             #axs[0].legend(fontsize=8) 
         if j == 1 :
             labelstring = 'pos, pH = {:d}'.format(int(p.parts[-2][2]))
+        '''
             axs[0].plot(d[:,0], d[:,1], label=labelstring, color = '{:s}'.format(linecolor[j][int(p.parts[-2][2])-2]) ,linestyle='-')      
             #axs[2].legend(fontsize=8) 
         if j == 2 :
@@ -68,53 +69,67 @@ for j in range(len(pathstring)):
             labelstring = 'pos, outer, pH = {:d}'.format(int(p.parts[-2][2]))
             axs[0].plot(d[:,0], d[:,1], label=labelstring, color = '{:s}'.format(linecolor[j][int(p.parts[-2][2])-2]) ,linestyle='-')      
             #axs[2].legend(fontsize=8)    
-            
+        '''
+        
+        if int(p.parts[-2][2]) in [2, 3] :
+            axs[0].plot(d[:,0], d[:,1], label=labelstring, color = '{:s}'.format(linecolor[j][int(p.parts[-2][2])-2]) ,linestyle='--')            
+            axs[1].plot(e[:,0], e[:,1],  color = '{:s}'.format(linecolor[j][int(p.parts[-2][2])-2]) ,linestyle='--'  )
+            axs[2].plot(f[:,0], f[:,1], color = '{:s}'.format(linecolor[j][int(p.parts[-2][2])-2]) , linestyle='--')   
+
+        elif int(p.parts[-2][2]) in [4] :
+            axs[0].plot(d[:,0], d[:,1], label=labelstring, color = '{:s}'.format(linecolor[j][int(p.parts[-2][2])-2]) ,linestyle=':')            
+            axs[1].plot(e[:,0], e[:,1],  color = '{:s}'.format(linecolor[j][int(p.parts[-2][2])-2]) ,linestyle=':'  )
+            axs[2].plot(f[:,0], f[:,1], color = '{:s}'.format(linecolor[j][int(p.parts[-2][2])-2]) , linestyle=':')   
+
+        else :
+            axs[0].plot(d[:,0], d[:,1], label=labelstring, color = '{:s}'.format(linecolor[j][int(p.parts[-2][2])-2]) ,linestyle='-')            
+            axs[1].plot(e[:,0], e[:,1],  color = '{:s}'.format(linecolor[j][int(p.parts[-2][2])-2]) ,linestyle='-'  )
+            axs[2].plot(f[:,0], f[:,1],  color = '{:s}'.format(linecolor[j][int(p.parts[-2][2])-2]) , linestyle='-')   
+
+        
         axs[0].fill_between(d[:,0], d_errdown, d_errup, color = '{:s}'.format(linecolor[j][int(p.parts[-2][2])-2]) , alpha=0.2)
         axs[0].set_ylim(0.00, 0.5)  
-        axs[0].set_ylabel(r'$P(d<7.1\AA)$', size=8)
+        axs[0].set_ylabel(r'$P_{in+out}(d<7.1\AA)$', size=8)
         axs[0].set_xlim(0, 40.5)
-       # 
-        #axs[0].grid(True)
-        
-        #if j == 0:
-        #    axs[0].legend(fontsize=8)
 
-        axs[1].plot(e[:,0], e[:,1],  color = '{:s}'.format(linecolor[j][int(p.parts[-2][2])-2]) ,linestyle=':'  )      
+              
         axs[1].fill_between(e[:,0], e_errdown, e_errup, color = '{:s}'.format(linecolor[j][int(p.parts[-2][2])-2]) , alpha=0.2)
         axs[1].set_ylim(0.00, 0.5)    
-        axs[1].set_ylabel(r'$P(d<7.1\AA)$', size=8)
+        axs[1].set_ylabel(r'$P_{in}(d<7.1\AA)$', size=8)
         axs[1].set_xlim(0, 40.5)
-        '''
-        if j == 0 and int(p.parts[-2][2]) == 2:
-            axs[1].plot(d[:,0], np.zeros(len(d)), label = 'in+out', color = 'black', linestyle = '-')
-            axs[1].plot(d[:,0], np.zeros(len(d)), label = 'in', color = 'black', linestyle = ':')    
-            axs[1].plot(d[:,0], np.zeros(len(d)), label = 'out', color = 'black', linestyle = '--')
-        else: 
-            axs[1].plot(d[:,0], np.zeros(len(d)), color = 'black', linestyle = '-')
-            axs[1].plot(d[:,0], np.zeros(len(d)), color = 'black', linestyle = ':')    
-            axs[1].plot(d[:,0], np.zeros(len(d)), color = 'black', linestyle = '--')
-            '''
-        axs[1].legend(fontsize = 8)
-        #axs[1].grid(True)
         
-        axs[2].plot(f[:,0], f[:,1], label=labelstring, color = '{:s}'.format(linecolor[j][int(p.parts[-2][2])-2]) , linestyle='--')      
-        
+
+            
         axs[2].fill_between(f[:,0], f_errdown, f_errup, color = '{:s}'.format(linecolor[j][int(p.parts[-2][2])-2]) , alpha=0.2)
         axs[2].set_ylim(0.0, 0.5)        
-        axs[2].set_ylabel(r'$P(d<7.1\AA)$', size=8)
+        axs[2].set_ylabel(r'$P_{out}(d<7.1\AA)$', size=8)
         axs[2].set_xlim(0, 40.5)
         axs[2].set_xlabel(r'$Monomer\ index$')
         #axs[2].grid(True)
         #if j == 1:   
             #axs[2].legend(fontsize=8)
+box = axs[0].get_position()
+axs[0].set_position([box.x0, box.y0, box.width * 0.9, box.height])
+box = axs[1].get_position()
+axs[1].set_position([box.x0, box.y0, box.width * 0.9, box.height])
+box = axs[2].get_position()
+axs[2].set_position([box.x0, box.y0, box.width * 0.9, box.height])
+#axs[1].set_position([box.x0, box.y0, box.width * 0.8, box.height])
+#axs[2].set_position([box.x0, box.y0, box.width * 0.8, box.height])
+
+# Put a legend to the right of the current axis
+fig.legend(loc='center right', bbox_to_anchor=(1.005, 0.5), fontsize=8)
 
 
+#fig.legend(fontsize = 8, loc='upper right', bbox_to_anchor=(0.5, -0.05))#, bbox_to_anchor=(1, 0))
+
+#fig.legend(fontsize=8)
 #plt.hold(True)
 plotlines.append([axs[0], axs[1], axs[2]])
 #legend1 = plt.legend(plotlines[0], ['in+out', 'in', 'out'], loc = 'center left')
 #plt.legend([axs[0]])
 #plt.plot(f[:,0], d[:,0], e[:,0], f[:,0], label=['in+out', 'in', 'out'])
 
-fig.savefig("fig/contactprob_neg_pos_cen_40_r2_without_legend.pdf")    
+fig.savefig("fig/contactprob_neg_pos_cen_40_r2_with_legend.pdf")    
 
 
