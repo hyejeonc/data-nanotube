@@ -26,45 +26,44 @@ sns.set(style="ticks", color_codes=True)
 
 plt.figure(1)
 
-df = pd.read_csv("spssdata/all_spss_rev1.csv")
-df_high = df[['reeavg', 'block', 'abs_chnet', 'coredist', 'sym']]
+df = pd.read_csv("spssdata/all_spss_rev4_inplusout-onlytube.csv")
+df_high = df[['inadsseg', 'block', 'abs_chnet', 'coredist', 'sym', 'ph']]
 #dfsc = sns.load_dataset('df_high')
-g = sns.pairplot(df_high, kind='reg', hue='sym')
+g = sns.pairplot(df_high, kind='reg', hue='ph')
 g.map(corrfunc)
 #g.show()
-g.savefig('fig/thesis_ree_high_rev2.pdf')
+g.savefig('fig/thesis_inads_high_sym_rev1.pdf')
 
-df_low = df[['reeavg', 'chnet', 'mon', 'ph', 'sym']]
-e = sns.pairplot(df_low, kind='reg', hue='sym')
+df_low = df[['inadsseg', 'chnet', 'mon', 'ph', 'sym']]
+e = sns.pairplot(df_low, kind='reg', hue='ph')
 e.map(corrfunc)
 #e.show()
-e.savefig('fig/thesis_ree_low_rev2.pdf')
+e.savefig('fig/thesis_inads_low_sym_rev1.pdf')
 plt.show()
 
-df = pd.read_csv("spssdata/all_spss_rev1.csv")
-df_high = df[['rgavg', 'block', 'abs_chnet', 'coredist', 'sym']]
+#df = pd.read_csv("spssdata/all_spss_rev4_inplusout-onlytube.csv")
+df_high = df[['outadsseg', 'block', 'abs_chnet', 'coredist', 'sym', 'ph']]
 #dfsc = sns.load_dataset('df_high')
-g = sns.pairplot(df_high, kind='reg', hue='sym')
-g.map(corrfunc)
+g = sns.pairplot(df_high, kind='reg', hue='ph')
 #g.show()
-g.savefig('fig/thesis_rg_high_rev2.pdf')
+g.savefig('fig/thesis_outads_high_sym_rev1.pdf')
 
-df_low = df[['rgavg', 'chnet', 'mon', 'ph', 'sym']]
-e = sns.pairplot(df_low, kind='reg', hue='sym')
+df_low = df[['outadsseg', 'chnet', 'mon', 'ph', 'sym']]
+e = sns.pairplot(df_low, kind='reg', hue='ph')
 e.map(corrfunc)
 #e.show()
-e.savefig('fig/thesis_rg_low_rev2.pdf')
+e.savefig('fig/thesis_outads_low_sym_rev1.pdf')
 plt.show()
 
 
 '''
-dfsc2 = df[['reeavg', 'chnet', 'mon', 'ph', 'tube', 'sym']]
+dfsc2 = df[['inadsseg', 'chnet', 'mon', 'ph', 'tube', 'sym']]
 sns.jointplot(dfsc2, kind='reg')
-plt.savefig('fig/thesis_scatter_low_rev0.pdf')
+plt.savefig('fig/thesis_scatter_low_rev1.pdf')
 '''
 '''
 barcolor = ['darkorange', 'gold', 'royalblue', 'lightblue']
-df21 = df.pivot('ph', 'structure', 'reeavg')
+df21 = df.pivot('ph', 'structure', 'inadsseg')
 #df22 = df.pivot('ph', 'reeerr')
 print(df21)
 #print(df22)

@@ -4,64 +4,25 @@ import matplotlib.pyplot as plt    # https://matplotlib.org/
 from pathlib import Path         # https://docs.python.org/3.5/library/pathlib.html#module-pathlib
 import molsim_utilities as mu
 import pandas as pd
-
+from pandas.tools.plotting import scatter_matrix
 import seaborn as sns
-from scipy.stats import pearsonr
-from scipy.stats import spearmanr
-# https://mansoostat.tistory.com/115 상관계수 정리 끝판왕
-#https://towardsdatascience.com/linear-regression-using-python-ce21aa90ade6
 # Say, "the default sans-serif font is COMIC SANS"
-def corrfunc(x, y, **kws):
-    #(r, p) = scipy.stats.pearsonr(x, y)
-    (r, p) = spearmanr(x, y)
-    ax = plt.gca()
-    ax.annotate("r={:.3f} ".format(r),
-                xy=(.1, .9), xycoords=ax.transAxes)
-    ax.annotate(" p={:.3f}".format(p),
-                xy=(.4, .9), xycoords=ax.transAxes)
 #matplotlib.rcParams['font.sans-serif'] = "Comic Sans MS"
 # Then, "ALWAYS use sans-serif fonts"
 #matplotlib.rcParams['font.family'] = "sans-serif"
-sns.set(style="ticks", color_codes=True)
+
 
 plt.figure(1)
 
 df = pd.read_csv("spssdata/all_spss_rev1.csv")
-df_high = df[['reeavg', 'block', 'abs_chnet', 'coredist', 'sym']]
-#dfsc = sns.load_dataset('df_high')
-g = sns.pairplot(df_high, kind='reg', hue='sym')
-g.map(corrfunc)
-#g.show()
-g.savefig('fig/thesis_ree_high_rev2.pdf')
-
-df_low = df[['reeavg', 'chnet', 'mon', 'ph', 'sym']]
-e = sns.pairplot(df_low, kind='reg', hue='sym')
-e.map(corrfunc)
-#e.show()
-e.savefig('fig/thesis_ree_low_rev2.pdf')
-plt.show()
-
-df = pd.read_csv("spssdata/all_spss_rev1.csv")
-df_high = df[['rgavg', 'block', 'abs_chnet', 'coredist', 'sym']]
-#dfsc = sns.load_dataset('df_high')
-g = sns.pairplot(df_high, kind='reg', hue='sym')
-g.map(corrfunc)
-#g.show()
-g.savefig('fig/thesis_rg_high_rev2.pdf')
-
-df_low = df[['rgavg', 'chnet', 'mon', 'ph', 'sym']]
-e = sns.pairplot(df_low, kind='reg', hue='sym')
-e.map(corrfunc)
-#e.show()
-e.savefig('fig/thesis_rg_low_rev2.pdf')
-plt.show()
+#df.head()
+#df.info()
+#df.describe()
+#df.columns
+dfscatter = df[['block', 'chnet', 'abs_chnet', 'coredist', 'mon', 'ph', 'tube', 'sym']]
+sns.pairplot(dfscatter)
 
 
-'''
-dfsc2 = df[['reeavg', 'chnet', 'mon', 'ph', 'tube', 'sym']]
-sns.jointplot(dfsc2, kind='reg')
-plt.savefig('fig/thesis_scatter_low_rev0.pdf')
-'''
 '''
 barcolor = ['darkorange', 'gold', 'royalblue', 'lightblue']
 df21 = df.pivot('ph', 'structure', 'reeavg')
@@ -77,8 +38,10 @@ df2.set_xlabel(r'$pH$')
 #df2.legend(['neg, in', 'neg, out', 'pos, in', 'pos, out'])
 #plt.savefig('fig/scatter_ph_rev0.pdf')
 '''
+
 '''
 df3 = df.plot.scatter(x='block', y='reeavg')
+df3.text(79,0.037, r'(b)', fontsize=10)
 df4 = df.plot.scatter(x='chnet', y='reeavg')
 df5 = df.plot.scatter(x='abs_chnet', y='reeavg')
 df6 = df.plot.scatter(x='coredist', y='reeavg')
@@ -114,3 +77,4 @@ df1.set_xlabel(r'$pH$')
 df1.legend(['neg, in', 'neg, out', 'pos, in', 'pos, out'])
 plt.savefig('fig/scatter_ph_rev0.pdf.pdf')
 '''
+plt.show()

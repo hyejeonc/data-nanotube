@@ -27,33 +27,33 @@ sns.set(style="ticks", color_codes=True)
 plt.figure(1)
 
 df = pd.read_csv("spssdata/all_spss_rev1.csv")
-df_high = df[['reeavg', 'block', 'abs_chnet', 'coredist', 'sym']]
+df_high = df[['reeavg', 'block', 'abs_chnet', 'coredist']]
 #dfsc = sns.load_dataset('df_high')
-g = sns.pairplot(df_high, kind='reg', hue='sym')
+g = sns.pairplot(df_high, kind='reg')
 g.map(corrfunc)
 #g.show()
-g.savefig('fig/thesis_ree_high_rev2.pdf')
+g.savefig('fig/thesis_ree_high_rev0.pdf')
 
-df_low = df[['reeavg', 'chnet', 'mon', 'ph', 'sym']]
-e = sns.pairplot(df_low, kind='reg', hue='sym')
+df_low = df[['reeavg', 'chnet', 'mon', 'ph']]
+e = sns.pairplot(df_low, kind='reg')
 e.map(corrfunc)
 #e.show()
-e.savefig('fig/thesis_ree_low_rev2.pdf')
+e.savefig('fig/thesis_ree_low_rev0.pdf')
 plt.show()
 
 df = pd.read_csv("spssdata/all_spss_rev1.csv")
-df_high = df[['rgavg', 'block', 'abs_chnet', 'coredist', 'sym']]
+df_high = df[['rgavg', 'block', 'abs_chnet', 'coredist']]
 #dfsc = sns.load_dataset('df_high')
-g = sns.pairplot(df_high, kind='reg', hue='sym')
+g = sns.pairplot(df_high, kind='reg')
 g.map(corrfunc)
 #g.show()
-g.savefig('fig/thesis_rg_high_rev2.pdf')
+g.savefig('fig/thesis_rg_high_rev0.pdf')
 
-df_low = df[['rgavg', 'chnet', 'mon', 'ph', 'sym']]
-e = sns.pairplot(df_low, kind='reg', hue='sym')
+df_low = df[['rgavg', 'chnet', 'mon', 'ph']]
+e = sns.pairplot(df_low, kind='reg')
 e.map(corrfunc)
 #e.show()
-e.savefig('fig/thesis_rg_low_rev2.pdf')
+e.savefig('fig/thesis_rg_low_rev0.pdf')
 plt.show()
 
 

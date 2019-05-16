@@ -350,7 +350,7 @@ def extractLines(fin, valstr, nretvals, headstr=' ', stripstring='=', fres=True,
           and if so update parameters for each valstr item.
           (Elements of) valstr are assumed to be strings, not byte arrays.
     '''
-
+    #if fin.endswith == False:
     if not fin.endswith(('.out', '.outsim')):
         errmsg = "Not an outsim file. Exiting extractLines()."
         sys.exit(errmsg)
@@ -459,6 +459,34 @@ def getMeanForce(basedir, runtype, fname, pHrange, value_fields=[]):
         
     return val_list
 
+def getAvgR(fin, runtype='zero', fname='cylinder_shell.out', pHrange='8'):
+    '''
+    
+    '''
+    headstr = 'chain type distribution functions'
+    value_fields = ['ree pa', 'rg pa', 'ree pa', 'rg pa', 'ree pa', 'rg pa']
+    sstring = ['     ', '     ', '    ', '    ', '    ', 'rg pa']    # [min, max, nbin, step]
+    #
+
+    val_list = []
+    '''
+    for i, ph in enumerate(pHrange):
+        confdir = getDir(basedir, runtype, ph)
+        if not confdir:
+            print('  Directory not found. Skipping.')
+            continue
+
+        fin = '{}/{}'.format(confdir, fname)
+    
+        if not os.path.isfile(fin):
+            print('  File {} not found. Skipping'.format(fin))
+            continue
+        
+        fin = '{}/{}'.format(confdir, fname)
+    '''    
+    val_list.append(extractLines(fin, value_fields, 4, headstr, stripstring=sstring))
+        
+    return val_list
 
 def getAdsChainFraction(basedir, runtype, fname, pHrange):
 

@@ -22,40 +22,58 @@ def corrfunc(x, y, **kws):
 #matplotlib.rcParams['font.sans-serif'] = "Comic Sans MS"
 # Then, "ALWAYS use sans-serif fonts"
 #matplotlib.rcParams['font.family'] = "sans-serif"
-sns.set(style="ticks", color_codes=True)
+#sns.set(style="ticks", color_codes=True)
+df = pd.read_csv("spssdata/all_spss_rev4_inplusout-onlytube.csv")
 
 plt.figure(1)
 
-df = pd.read_csv("spssdata/all_spss_rev1.csv")
-df_high = df[['reeavg', 'block', 'abs_chnet', 'coredist', 'sym']]
+# Make default histogram of sepal length
+g = sns.distplot( df["reeavg"], bins=20, norm_hist=False, rug=True)
+#g = plt.hist( df["reeavg"])
+
+g.set_xlabel(r'$reeavg$')
+g.set_ylabel(r'$relative\ frequency$')
+plt.savefig('fig/thesis_ree_histo_rev2.pdf')
+
+plt.figure(2)
+# Control the number of bins
+f = sns.distplot( df["rgavg"], bins=20, norm_hist=False, rug=True )
+f.set_xlabel(r'$rgavg$')
+f.set_ylabel(r'$relative\ frequency$')
+plt.savefig('fig/thesis_rg_histo_rev2.pdf')
+
+'''
+df_high = df[['reeavg', 'block', 'abs_chnet', 'coredist']]
 #dfsc = sns.load_dataset('df_high')
-g = sns.pairplot(df_high, kind='reg', hue='sym')
+
+
+g = sns.pairplot(df_high, kind='reg')
 g.map(corrfunc)
 #g.show()
-g.savefig('fig/thesis_ree_high_rev2.pdf')
+g.savefig('fig/thesis_ree_high_rev0.pdf')
 
-df_low = df[['reeavg', 'chnet', 'mon', 'ph', 'sym']]
-e = sns.pairplot(df_low, kind='reg', hue='sym')
+df_low = df[['reeavg', 'chnet', 'mon', 'ph']]
+e = sns.pairplot(df_low, kind='reg')
 e.map(corrfunc)
 #e.show()
-e.savefig('fig/thesis_ree_low_rev2.pdf')
+e.savefig('fig/thesis_ree_low_rev0.pdf')
 plt.show()
 
 df = pd.read_csv("spssdata/all_spss_rev1.csv")
-df_high = df[['rgavg', 'block', 'abs_chnet', 'coredist', 'sym']]
+df_high = df[['rgavg', 'block', 'abs_chnet', 'coredist']]
 #dfsc = sns.load_dataset('df_high')
-g = sns.pairplot(df_high, kind='reg', hue='sym')
+g = sns.pairplot(df_high, kind='reg')
 g.map(corrfunc)
 #g.show()
-g.savefig('fig/thesis_rg_high_rev2.pdf')
+g.savefig('fig/thesis_rg_high_rev0.pdf')
 
-df_low = df[['rgavg', 'chnet', 'mon', 'ph', 'sym']]
-e = sns.pairplot(df_low, kind='reg', hue='sym')
+df_low = df[['rgavg', 'chnet', 'mon', 'ph']]
+e = sns.pairplot(df_low, kind='reg')
 e.map(corrfunc)
 #e.show()
-e.savefig('fig/thesis_rg_low_rev2.pdf')
+e.savefig('fig/thesis_rg_low_rev0.pdf')
 plt.show()
-
+'''
 
 '''
 dfsc2 = df[['reeavg', 'chnet', 'mon', 'ph', 'tube', 'sym']]
